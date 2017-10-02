@@ -1,4 +1,4 @@
-# VoiceBase Go Client
+# Go API client for voicebase
 
 APIs for speech recognition and speech analytics, powering insights every business needs.
 
@@ -13,7 +13,7 @@ For more information, please visit [https://www.voicebase.com/contact-us/](https
 ## Installation
 Put the package under your project folder and add the following in import:
 ```
-    "./swagger"
+    "./voicebase"
 ```
 
 ## Documentation for API Endpoints
