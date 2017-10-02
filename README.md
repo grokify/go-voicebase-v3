@@ -1,4 +1,4 @@
-# Go API client for swagger
+# VoiceBase Go Client
 
 APIs for speech recognition and speech analytics, powering insights every business needs.
 
