@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -13,12 +13,12 @@ package voicebase
 import (
 	"bytes"
 	"fmt"
+	"gopkg.in/go-resty/resty.v0"
+	"io/ioutil"
+	"net/url"
 	"path/filepath"
 	"reflect"
 	"strings"
-	"net/url"
-	"io/ioutil"
-	"gopkg.in/go-resty/resty.v0"
 )
 
 type APIClient struct {
@@ -132,7 +132,6 @@ func (c *APIClient) prepareRequest(
 	formParams map[string]string,
 	fileName string,
 	fileBytes []byte) *resty.Request {
-
 
 	request := rClient.R()
 	request.SetBody(postBody)
