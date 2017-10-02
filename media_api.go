@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -11,13 +11,13 @@
 package voicebase
 
 import (
-	"net/url"
-	"strings"
-	"os"
-	"io/ioutil"
-	"time"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"net/url"
+	"os"
+	"strings"
+	"time"
 )
 
 type MediaApi struct {
@@ -69,7 +69,7 @@ func (a MediaApi) DeleteMediaById(mediaId string) (*APIResponse, error) {
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -79,7 +79,7 @@ func (a MediaApi) DeleteMediaById(mediaId string) (*APIResponse, error) {
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -133,9 +133,8 @@ func (a MediaApi) GetMediaById(mediaId string, includeAlternateFormat []string) 
 	var includeAlternateFormatCollectionFormat = "csv"
 	localVarQueryParams.Add("includeAlternateFormat", a.Configuration.APIClient.ParameterToString(includeAlternateFormat, includeAlternateFormatCollectionFormat))
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -145,7 +144,7 @@ func (a MediaApi) GetMediaById(mediaId string, includeAlternateFormat []string) 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -199,7 +198,7 @@ func (a MediaApi) GetMetadataById(mediaId string) (*VbMetadata, *APIResponse, er
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -209,7 +208,7 @@ func (a MediaApi) GetMetadataById(mediaId string) (*VbMetadata, *APIResponse, er
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -263,7 +262,7 @@ func (a MediaApi) GetProgressById(mediaId string) (*VbJob, *APIResponse, error) 
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -273,7 +272,7 @@ func (a MediaApi) GetProgressById(mediaId string) (*VbJob, *APIResponse, error) 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -329,7 +328,7 @@ func (a MediaApi) GetStreamByMediaIdAndName(mediaId string, streamName string) (
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -339,7 +338,7 @@ func (a MediaApi) GetStreamByMediaIdAndName(mediaId string, streamName string) (
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -393,7 +392,7 @@ func (a MediaApi) GetStreamsById(mediaId string) (*VbStreams, *APIResponse, erro
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -403,7 +402,7 @@ func (a MediaApi) GetStreamsById(mediaId string) (*VbStreams, *APIResponse, erro
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -457,7 +456,7 @@ func (a MediaApi) GetSubtitleDfxpById(mediaId string) (*string, *APIResponse, er
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -467,7 +466,7 @@ func (a MediaApi) GetSubtitleDfxpById(mediaId string) (*string, *APIResponse, er
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/ttml+xml",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -521,7 +520,7 @@ func (a MediaApi) GetSubtitleWebVttById(mediaId string) (*string, *APIResponse, 
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -531,7 +530,7 @@ func (a MediaApi) GetSubtitleWebVttById(mediaId string) (*string, *APIResponse, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"text/vtt",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -585,7 +584,7 @@ func (a MediaApi) GetSubtitlesById(mediaId string) (*string, *APIResponse, error
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -595,7 +594,7 @@ func (a MediaApi) GetSubtitlesById(mediaId string) (*string, *APIResponse, error
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"text/srt",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -649,7 +648,7 @@ func (a MediaApi) GetTextById(mediaId string) (*string, *APIResponse, error) {
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -659,7 +658,7 @@ func (a MediaApi) GetTextById(mediaId string) (*string, *APIResponse, error) {
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"text/plain",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -715,9 +714,8 @@ func (a MediaApi) GetTranscript(mediaId string, includeAlternateFormat []string)
 	var includeAlternateFormatCollectionFormat = "csv"
 	localVarQueryParams.Add("includeAlternateFormat", a.Configuration.APIClient.ParameterToString(includeAlternateFormat, includeAlternateFormatCollectionFormat))
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -727,7 +725,7 @@ func (a MediaApi) GetTranscript(mediaId string, includeAlternateFormat []string)
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -799,7 +797,7 @@ func (a MediaApi) MediaQuery(query string, externalId string, before string, aft
 	localVarQueryParams.Add("limit", a.Configuration.APIClient.ParameterToString(limit, ""))
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -809,7 +807,7 @@ func (a MediaApi) MediaQuery(query string, externalId string, before string, aft
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -866,7 +864,7 @@ func (a MediaApi) PostMedia(media *os.File, mediaUrl string, configuration strin
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "multipart/form-data", "multipart/mixed",  }
+	localVarHttpContentTypes := []string{"multipart/form-data", "multipart/mixed"}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -876,26 +874,41 @@ func (a MediaApi) PostMedia(media *os.File, mediaUrl string, configuration strin
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	fbs, _ := ioutil.ReadAll(file)
-	localVarFileBytes = fbs
-	localVarFileName = file.Name()
+
+	/*
+		// Swagger Codegen Errors - grokify
+		fbs, _ := ioutil.ReadAll(file)
+		localVarFileBytes = fbs
+		localVarFileName = file.Name()
+	*/
+
+	var successPayload = new(VbMedia)
+	var localVarURL, _ = url.Parse(localVarPath)
+	localVarURL.RawQuery = localVarQueryParams.Encode()
+	var localVarAPIResponse = &APIResponse{Operation: "PostMedia", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+
+	localVarFileBytes, err := ioutil.ReadAll(media)
+	if err != nil {
+		return successPayload, localVarAPIResponse, err
+	}
+	localVarFileName = media.Name()
 	localVarFormParams["mediaUrl"] = a.Configuration.APIClient.ParameterToString(mediaUrl, "")
 	localVarFormParams["configuration"] = a.Configuration.APIClient.ParameterToString(configuration, "")
 	localVarFormParams["metadata"] = a.Configuration.APIClient.ParameterToString(metadata, "")
 	localVarFormParams["transcript"] = a.Configuration.APIClient.ParameterToString(transcript, "")
-	var successPayload = new(VbMedia)
+	//var successPayload = new(VbMedia)
 	localVarHttpResponse, err := a.Configuration.APIClient.CallAPI(localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 
-	var localVarURL, _ = url.Parse(localVarPath)
-	localVarURL.RawQuery = localVarQueryParams.Encode()
-	var localVarAPIResponse = &APIResponse{Operation: "PostMedia", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
+	//var localVarURL, _ = url.Parse(localVarPath)
+	//localVarURL.RawQuery = localVarQueryParams.Encode()
+	//var localVarAPIResponse = &APIResponse{Operation: "PostMedia", Method: localVarHttpMethod, RequestURL: localVarURL.String()}
 	if localVarHttpResponse != nil {
 		localVarAPIResponse.Response = localVarHttpResponse.RawResponse
 		localVarAPIResponse.Payload = localVarHttpResponse.Body()
@@ -940,7 +953,7 @@ func (a MediaApi) PostMediaById(mediaId string, configuration string, metadata s
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "multipart/form-data", "multipart/mixed",  }
+	localVarHttpContentTypes := []string{"multipart/form-data", "multipart/mixed"}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -950,7 +963,7 @@ func (a MediaApi) PostMediaById(mediaId string, configuration string, metadata s
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1008,7 +1021,7 @@ func (a MediaApi) SetMetadataById(mediaId string, metadata VbMetadata) (*VbMetad
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -1018,7 +1031,7 @@ func (a MediaApi) SetMetadataById(mediaId string, metadata VbMetadata) (*VbMetad
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1044,4 +1057,3 @@ func (a MediaApi) SetMetadataById(mediaId string, metadata VbMetadata) (*VbMetad
 	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
 	return successPayload, localVarAPIResponse, err
 }
-
