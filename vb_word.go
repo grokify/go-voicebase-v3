@@ -21,7 +21,8 @@ type VbWord struct {
 
 	Frq []VbFrequency `json:"frq,omitempty"`
 
-	M VbWordTypeEnum `json:"m,omitempty"`
+	//M VbWordTypeEnum `json:"m,omitempty"` // grokify
+	M string `json:"m,omitempty"` // grokify
 
 	V float64 `json:"v,omitempty"`
 
