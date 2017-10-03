@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -23,7 +23,7 @@ type VbMediaSummary struct {
 	MediaId string `json:"mediaId,omitempty"`
 
 	// Processing state.
-	Status VbStatusEnum `json:"status,omitempty"`
+	Status string `json:"status,omitempty"`
 
 	// Creation timestamp
 	DateCreated time.Time `json:"dateCreated,omitempty"`
