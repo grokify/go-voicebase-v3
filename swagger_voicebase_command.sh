@@ -1,0 +1,1 @@
+java -jar swagger-codegen-cli.jar generate -c swagger_voicebase_config.json -i swagger_voicebase_v3.yaml -l go -o .
