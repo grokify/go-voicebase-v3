@@ -1,4 +1,4 @@
-# Go API client for voicebase
+# VoiceBase API Client for Go
 
 APIs for speech recognition and speech analytics, powering insights every business needs.
 
