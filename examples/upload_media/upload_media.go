@@ -16,7 +16,9 @@ import (
 
 const (
 	EnvAccessToken = "VOICEBASE_BEARER_TOKEN"
-	SampleFile     = "SampleAudio_0.4mb.mp3"
+
+	// SampleFile from https://archive.org/details/testmp3testfile
+	SampleFile = "mpthreetest.mp3"
 )
 
 func NewClient() *http.Client {
