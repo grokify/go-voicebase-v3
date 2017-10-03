@@ -40,7 +40,7 @@ func main() {
 }
 ```
 
-A full example is availabel at [examples/get_transcript/get_transcript.go](examples/get_transcript/get_transcript.go).
+A full example is available at [examples/get_transcript/get_transcript.go](examples/get_transcript/get_transcript.go).
 
 ## Documentation for API Endpoints
 
