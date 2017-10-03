@@ -24,8 +24,6 @@ $ go get github.com/grokify/go-voicebase-v3/...
 
 ```go
 import(
-    "os"
-
     "github.com/grokify/go-voicebase-v3"
 )
 
