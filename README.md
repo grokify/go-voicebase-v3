@@ -24,8 +24,23 @@ $ go get github.com/grokify/go-voicebase-v3/...
 
 ```go
 import(
+    "os"
+
     "github.com/grokify/go-voicebase-v3"
 )
+
+func main() {
+	accessToken := "myAccessToken"
+	mediaId := "myMediaId"
+
+	mediaApi := voicebase.NewMediaApi()
+	mediaApi.Configuration.SetAccessToken(accessToken)
+
+	vbt, resp, err := mediaApi.GetTranscript(mediaId, []string{})
+}
+
+A full example is availabel at [examples/get_transcript/get_transcript.go](examples/get_transcript/get_transcript.go).
+
 ```
 
 ## Documentation for API Endpoints

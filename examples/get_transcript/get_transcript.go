@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 
@@ -11,9 +10,8 @@ import (
 )
 
 const (
-	EnvAccessToken       = "VOICEBASE_BEARER_TOKEN"
-	EnvMediaId           = "VOICEBASE_TRANSCRIPT_MEDIA_ID"
-	VoiceBaseApiBasePath = "https://apis.voicebase.com"
+	EnvAccessToken = "VOICEBASE_BEARER_TOKEN"
+	EnvMediaId     = "VOICEBASE_TRANSCRIPT_MEDIA_ID"
 )
 
 func main() {
@@ -25,7 +23,7 @@ func main() {
 	accessToken := os.Getenv(EnvAccessToken)
 	mediaId := os.Getenv(EnvMediaId)
 
-	mediaApi := voicebase.NewMediaApiWithBasePath(VoiceBaseApiBasePath)
+	mediaApi := voicebase.NewMediaApi()
 	mediaApi.Configuration.SetAccessToken(accessToken)
 
 	vbt, resp, err := mediaApi.GetTranscript(mediaId, []string{})
