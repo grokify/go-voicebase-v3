@@ -38,10 +38,9 @@ func main() {
 
 	vbt, resp, err := mediaApi.GetTranscript(mediaId, []string{})
 }
+```
 
 A full example is availabel at [examples/get_transcript/get_transcript.go](examples/get_transcript/get_transcript.go).
-
-```
 
 ## Documentation for API Endpoints
 
