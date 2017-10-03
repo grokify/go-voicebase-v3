@@ -46,8 +46,8 @@ type VbMediaUploadResponse struct {
 }
 
 type Links struct {
-	Self     LinkInfo `json:"metadata,omitempty"`
-	Progress LinkInfo `json:"metadata,omitempty"`
+	Self     LinkInfo `json:"self,omitempty"`
+	Progress LinkInfo `json:"progress,omitempty"`
 	Metadata LinkInfo `json:"metadata,omitempty"`
 }
 
