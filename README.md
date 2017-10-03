@@ -1,5 +1,9 @@
 # VoiceBase API v3 Client for Go
 
+[![Go Report Card][goreport-svg]][goreport-link]
+[![Docs][docs-godoc-svg]][docs-godoc-link]
+[![License][license-svg]][license-link]
+
 APIs for speech recognition and speech analytics, powering insights every business needs.
 
 ## Overview
@@ -163,3 +167,11 @@ Class | Method | HTTP request | Description
 
 support@voicebase.com
 
+ [build-status-svg]: https://api.travis-ci.org/grokify/go-voicebase-v3.svg?branch=master
+ [build-status-link]: https://travis-ci.org/grokify/go-voicebase-v3
+ [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-voicebase-v3
+ [goreport-link]: https://goreportcard.com/report/github.com/grokify/go-voicebase-v3
+ [docs-godoc-svg]: https://img.shields.io/badge/docs-godoc-blue.svg
+ [docs-godoc-link]: https://godoc.org/github.com/grokify/go-voicebase-v3
+ [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
+ [license-link]: https://github.com/grokify/go-voicebase-v3/blob/master/LICENSE
