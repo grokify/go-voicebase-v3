@@ -18,16 +18,11 @@ const (
 	EnvAccessToken = "VOICEBASE_BEARER_TOKEN"
 )
 
-func NewClient() *http.Client {
-	err := godotenv.Load()
-	if err != nil {
-		panic(err)
-	}
-
+func NewClient(accessToken string) *http.Client {
 	t0, _ := time.Parse(time.RFC3339, timeutil.RFC3339Zero)
 
 	token := &oauth2.Token{
-		AccessToken: os.Getenv(EnvAccessToken),
+		AccessToken: accessToken,
 		TokenType:   "Bearer",
 		Expiry:      t0}
 
@@ -37,8 +32,19 @@ func NewClient() *http.Client {
 }
 
 func main() {
-	client := NewClient()
+	err := godotenv.Load()
+	if err != nil {
+		panic(err)
+	}
+
+	client := NewClient(os.Getenv(EnvAccessToken))
+
 	resp, err := client.Get("https://apis.voicebase.com/v3/media")
+	if err != nil {
+		panic(err)
+	}
+
+	err = httputilmore.PrintResponse(resp, true)
 	if err != nil {
 		panic(err)
 	}

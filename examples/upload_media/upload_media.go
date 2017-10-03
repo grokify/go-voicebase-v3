@@ -21,16 +21,11 @@ const (
 	SampleFile = "mpthreetest.mp3"
 )
 
-func NewClient() *http.Client {
-	err := godotenv.Load()
-	if err != nil {
-		panic(err)
-	}
-
+func NewClient(accessToken string) *http.Client {
 	t0, _ := time.Parse(time.RFC3339, timeutil.RFC3339Zero)
 
 	token := &oauth2.Token{
-		AccessToken: os.Getenv(EnvAccessToken),
+		AccessToken: accessToken,
 		TokenType:   "Bearer",
 		Expiry:      t0}
 
@@ -108,7 +103,12 @@ func UploadMedia(client *http.Client, filepath string, verbose bool) *http.Respo
 }
 
 func main() {
-	client := NewClient()
+	err := godotenv.Load()
+	if err != nil {
+		panic(err)
+	}
+
+	client := NewClient(os.Getenv(EnvAccessToken))
 	verbose := true
 	UploadMedia(client, SampleFile, verbose)
 
