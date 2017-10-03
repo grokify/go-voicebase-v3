@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -11,7 +11,6 @@
 package voicebase
 
 type VbClassifierModel struct {
-
 	ClassifierId string `json:"classifierId,omitempty"`
 
 	// Use this name for referring to the classifier in a configuration provided with the media for processing

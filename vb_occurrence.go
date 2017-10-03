@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -11,7 +11,6 @@
 package voicebase
 
 type VbOccurrence struct {
-
 	S int64 `json:"s,omitempty"`
 
 	E int64 `json:"e,omitempty"`

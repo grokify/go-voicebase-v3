@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -15,7 +15,6 @@ import (
 )
 
 type VbKey struct {
-
 	Id string `json:"id,omitempty"`
 
 	BearerToken string `json:"bearerToken,omitempty"`

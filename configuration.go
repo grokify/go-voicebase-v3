@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -16,7 +16,6 @@ import (
 	"time"
 )
 
-
 type Configuration struct {
 	Username      string            `json:"userName,omitempty"`
 	Password      string            `json:"password,omitempty"`
@@ -33,7 +32,7 @@ type Configuration struct {
 	UserAgent     string            `json:"userAgent,omitempty"`
 	APIClient     *APIClient
 	Transport     *http.Transport
-	Timeout       *time.Duration    `json:"timeout,omitempty"`
+	Timeout       *time.Duration `json:"timeout,omitempty"`
 }
 
 func NewConfiguration() *Configuration {

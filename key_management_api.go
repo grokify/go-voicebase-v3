@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -11,10 +11,10 @@
 package voicebase
 
 import (
-	"net/url"
-	"strings"
 	"encoding/json"
 	"fmt"
+	"net/url"
+	"strings"
 )
 
 type KeyManagementApi struct {
@@ -65,7 +65,7 @@ func (a KeyManagementApi) CreateKey(key VbKeyConfiguration) (*VbKey, *APIRespons
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -75,7 +75,7 @@ func (a KeyManagementApi) CreateKey(key VbKeyConfiguration) (*VbKey, *APIRespons
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -131,7 +131,7 @@ func (a KeyManagementApi) DeleteKeyById(keyId string) (*APIResponse, error) {
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -141,7 +141,7 @@ func (a KeyManagementApi) DeleteKeyById(keyId string) (*APIResponse, error) {
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -193,7 +193,7 @@ func (a KeyManagementApi) GetKeyById(keyId string) (*VbKey, *APIResponse, error)
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -203,7 +203,7 @@ func (a KeyManagementApi) GetKeyById(keyId string) (*VbKey, *APIResponse, error)
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -255,7 +255,7 @@ func (a KeyManagementApi) GetKeys() (*VbKeysResponse, *APIResponse, error) {
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -265,7 +265,7 @@ func (a KeyManagementApi) GetKeys() (*VbKeysResponse, *APIResponse, error) {
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -289,4 +289,3 @@ func (a KeyManagementApi) GetKeys() (*VbKeysResponse, *APIResponse, error) {
 	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
 	return successPayload, localVarAPIResponse, err
 }
-

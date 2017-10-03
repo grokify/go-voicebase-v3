@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -11,7 +11,6 @@
 package voicebase
 
 type VbDetectorModel struct {
-
 	DetectorId string `json:"detectorId,omitempty"`
 
 	// Use this detector name when refering to this detector in a configuration for media processing

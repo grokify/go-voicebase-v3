@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -11,7 +11,6 @@
 package voicebase
 
 type VbJob struct {
-
 	MediaId string `json:"mediaId,omitempty"`
 
 	JobId string `json:"jobId,omitempty"`

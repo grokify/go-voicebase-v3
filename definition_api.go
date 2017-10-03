@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -11,10 +11,10 @@
 package voicebase
 
 import (
-	"net/url"
-	"strings"
 	"encoding/json"
 	"fmt"
+	"net/url"
+	"strings"
 )
 
 type DefinitionApi struct {
@@ -67,7 +67,7 @@ func (a DefinitionApi) CreateKeywordSpottingGroup(groupId string, keywordSpottin
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -77,7 +77,7 @@ func (a DefinitionApi) CreateKeywordSpottingGroup(groupId string, keywordSpottin
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -134,7 +134,7 @@ func (a DefinitionApi) CreateVocabulary(vocabularyId string, vocabulary VbVocabu
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -144,7 +144,7 @@ func (a DefinitionApi) CreateVocabulary(vocabularyId string, vocabulary VbVocabu
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -200,7 +200,7 @@ func (a DefinitionApi) DeleteKeywordSpottingGroupById(groupId string) (*APIRespo
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -210,7 +210,7 @@ func (a DefinitionApi) DeleteKeywordSpottingGroupById(groupId string) (*APIRespo
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -262,7 +262,7 @@ func (a DefinitionApi) DeleteVocabularyById(vocabularyId string) (*APIResponse, 
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -272,7 +272,7 @@ func (a DefinitionApi) DeleteVocabularyById(vocabularyId string) (*APIResponse, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -324,7 +324,7 @@ func (a DefinitionApi) GetClassifier(classifierId string) (*VbClassifierModel, *
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -334,7 +334,7 @@ func (a DefinitionApi) GetClassifier(classifierId string) (*VbClassifierModel, *
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -386,7 +386,7 @@ func (a DefinitionApi) GetClassifiers() (*VbClassifierModelsResponse, *APIRespon
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -396,7 +396,7 @@ func (a DefinitionApi) GetClassifiers() (*VbClassifierModelsResponse, *APIRespon
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -450,7 +450,7 @@ func (a DefinitionApi) GetDetector(detectorId string) (*VbDetectorModel, *APIRes
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -460,7 +460,7 @@ func (a DefinitionApi) GetDetector(detectorId string) (*VbDetectorModel, *APIRes
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -512,7 +512,7 @@ func (a DefinitionApi) GetDetectors() (*VbDetectorModelsResponse, *APIResponse, 
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -522,7 +522,7 @@ func (a DefinitionApi) GetDetectors() (*VbDetectorModelsResponse, *APIResponse, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -576,7 +576,7 @@ func (a DefinitionApi) GetKeywordSpottingGroupById(groupId string) (*VbKeywordGr
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -586,7 +586,7 @@ func (a DefinitionApi) GetKeywordSpottingGroupById(groupId string) (*VbKeywordGr
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -638,7 +638,7 @@ func (a DefinitionApi) GetKeywordSpottingGroups() (*VbKeywordGroupsResponse, *AP
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -648,7 +648,7 @@ func (a DefinitionApi) GetKeywordSpottingGroups() (*VbKeywordGroupsResponse, *AP
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -700,7 +700,7 @@ func (a DefinitionApi) GetSearchableFields() (*VbSearchableFields, *APIResponse,
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -710,7 +710,7 @@ func (a DefinitionApi) GetSearchableFields() (*VbSearchableFields, *APIResponse,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -762,7 +762,7 @@ func (a DefinitionApi) GetVocabularies() (*VbVocabulariesResponse, *APIResponse,
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -772,7 +772,7 @@ func (a DefinitionApi) GetVocabularies() (*VbVocabulariesResponse, *APIResponse,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -826,7 +826,7 @@ func (a DefinitionApi) GetVocabularyById(vocabularyId string) (*VbVocabulary, *A
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -836,7 +836,7 @@ func (a DefinitionApi) GetVocabularyById(vocabularyId string) (*VbVocabulary, *A
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -889,7 +889,7 @@ func (a DefinitionApi) SetSearchableFields(searchableFields VbSearchableFields) 
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := a.Configuration.APIClient.SelectHeaderContentType(localVarHttpContentTypes)
@@ -899,7 +899,7 @@ func (a DefinitionApi) SetSearchableFields(searchableFields VbSearchableFields) 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := a.Configuration.APIClient.SelectHeaderAccept(localVarHttpHeaderAccepts)
@@ -925,4 +925,3 @@ func (a DefinitionApi) SetSearchableFields(searchableFields VbSearchableFields) 
 	err = json.Unmarshal(localVarHttpResponse.Body(), &successPayload)
 	return successPayload, localVarAPIResponse, err
 }
-

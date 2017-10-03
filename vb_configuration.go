@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -11,7 +11,6 @@
 package voicebase
 
 type VbConfiguration struct {
-
 	SpeechModel VbSpeechModelConfiguration `json:"speechModel,omitempty"`
 
 	// Allows to specify other languages to enable recognition when conversations occur in multiple languages

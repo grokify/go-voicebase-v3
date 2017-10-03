@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -12,7 +12,6 @@ package voicebase
 
 // Sound attributes to replace spoken words in the audio when reported by a detector
 type VbAudioRedactorConfiguration struct {
-
 	Tone int32 `json:"tone,omitempty"`
 
 	Gain float32 `json:"gain,omitempty"`

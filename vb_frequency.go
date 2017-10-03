@@ -1,4 +1,4 @@
-/* 
+/*
  * Voicebase V3 API
  *
  * APIs for speech recognition and speech analytics, powering insights every business needs.
@@ -11,7 +11,6 @@
 package voicebase
 
 type VbFrequency struct {
-
 	E float64 `json:"e,omitempty"`
 
 	F float64 `json:"f,omitempty"`
