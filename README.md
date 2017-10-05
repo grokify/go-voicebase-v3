@@ -1,4 +1,4 @@
-# VoiceBase API v3 Client for Go
+# VoiceBase API v3 Client SDK for Go
 
 [![Go Report Card][goreport-svg]][goreport-link]
 [![Docs][docs-godoc-svg]][docs-godoc-link]
