@@ -9,9 +9,8 @@ import (
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	"github.com/grokify/gotilla/mime/multipartutil"
 	"github.com/grokify/gotilla/net/httputilmore"
-	"github.com/grokify/gotilla/time/timeutil"
+	"github.com/grokify/oauth2util-go"
 	"github.com/joho/godotenv"
-	"golang.org/x/oauth2"
 )
 
 const (
@@ -20,19 +19,6 @@ const (
 	// SampleFile from https://archive.org/details/testmp3testfile
 	SampleFile = "mpthreetest.mp3"
 )
-
-func NewClient(accessToken string) *http.Client {
-	t0, _ := time.Parse(time.RFC3339, timeutil.RFC3339Zero)
-
-	token := &oauth2.Token{
-		AccessToken: accessToken,
-		TokenType:   "Bearer",
-		Expiry:      t0}
-
-	oAuthConfig := &oauth2.Config{}
-
-	return oAuthConfig.Client(oauth2.NoContext, token)
-}
 
 type VbMediaUploadResponse struct {
 	Links            Links       `json:"_links,omitempty"`
@@ -108,7 +94,7 @@ func main() {
 		panic(err)
 	}
 
-	client := NewClient(os.Getenv(EnvAccessToken))
+	client := oauth2util.NewClientAccessToken(os.Getenv(EnvAccessToken))
 	verbose := true
 	UploadMedia(client, SampleFile, verbose)
 
