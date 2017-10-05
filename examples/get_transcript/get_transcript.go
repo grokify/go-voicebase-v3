@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/go-voicebase-v3"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	"github.com/joho/godotenv"
+	"gopkg.in/grokify/go-voicebase-v3.v0"
 )
 
 const (

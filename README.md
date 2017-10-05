@@ -17,14 +17,14 @@ For more information, please visit [https://www.voicebase.com/contact-us/](https
 ## Installation
 
 ```bash
-$ go get github.com/grokify/go-voicebase-v3/...
+$ go get gopkg.in/grokify/go-voicebase-v3.v0
 ```
 
 ## Usage
 
 ```go
 import(
-	"github.com/grokify/go-voicebase-v3"
+	"gopkg.in/grokify/go-voicebase-v3.v0"
 )
 
 func main() {
