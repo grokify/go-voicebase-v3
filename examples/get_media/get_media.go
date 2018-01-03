@@ -40,8 +40,8 @@ func main() {
 	} else if resp.StatusCode > 299 {
 		panic(fmt.Errorf(
 			"VoiceBase media query returned status %v",
-			resp.StatusCode),
-		)
+			resp.StatusCode,
+		))
 	}
 
 	fmtutil.PrintJSON(mediaResponse)
