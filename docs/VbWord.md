@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **S** | **int64** |  | [optional] [default to null]
 **E** | **int64** |  | [optional] [default to null]
 **Frq** | [**[]VbFrequency**](VbFrequency.md) |  | [optional] [default to null]
-**M** | [**VbWordTypeEnum**](VbWordTypeEnum.md) |  | [optional] [default to null]
+**M** | [***VbWordTypeEnum**](VbWordTypeEnum.md) |  | [optional] [default to null]
 **V** | **float64** |  | [optional] [default to null]
 **W** | **string** |  | [optional] [default to null]
 

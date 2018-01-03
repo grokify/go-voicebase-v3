@@ -11,18 +11,17 @@ Method | HTTP request | Description
 
 
 # **CreateKey**
-> VbKey CreateKey($key)
-
+> VbKey CreateKey(ctx, key)
 Create API Key
 
 Create a new API key for the current user
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | [**VbKeyConfiguration**](VbKeyConfiguration.md)| Key config. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **key** | [**VbKeyConfiguration**](VbKeyConfiguration.md)| Key config. | 
 
 ### Return type
 
@@ -40,22 +39,21 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteKeyById**
-> DeleteKeyById($keyId)
-
+> DeleteKeyById(ctx, keyId)
 Delete API key
 
 Delete and revoke this API key
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyId** | **string**| The key Id. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **keyId** | **string**| The key Id. | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -69,18 +67,17 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetKeyById**
-> VbKey GetKeyById($keyId)
-
+> VbKey GetKeyById(ctx, keyId)
 Retrieve details about an API key
 
 Get information about this API key
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **keyId** | **string**| The key Id. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **keyId** | **string**| The key Id. | 
 
 ### Return type
 
@@ -98,14 +95,12 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetKeys**
-> VbKeysResponse GetKeys()
-
+> VbKeysResponse GetKeys(ctx, )
 List API Keys
 
 Returns all current API keys for current user
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type

@@ -21,19 +21,18 @@ Method | HTTP request | Description
 
 
 # **CreateKeywordSpottingGroup**
-> VbKeywordGroup CreateKeywordSpottingGroup($groupId, $keywordSpottingGroup)
-
+> VbKeywordGroup CreateKeywordSpottingGroup(ctx, groupId, keywordSpottingGroup)
 Create or update keyword spotting group
 
 Create or update a keyword spotting group with a set of keywords
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The keyword spotting group identifier. | 
- **keywordSpottingGroup** | [**VbKeywordGroup**](VbKeywordGroup.md)| Keyword Spotting Group definition | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **groupId** | **string**| The keyword spotting group identifier. | 
+  **keywordSpottingGroup** | [**VbKeywordGroup**](VbKeywordGroup.md)| Keyword Spotting Group definition | 
 
 ### Return type
 
@@ -51,19 +50,18 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateVocabulary**
-> VbVocabulary CreateVocabulary($vocabularyId, $vocabulary)
-
+> VbVocabulary CreateVocabulary(ctx, vocabularyId, vocabulary)
 Create or update a custom vocabulary
 
 Create or update a custom vocabulary. Custom vocabularies are used to improve accurary of transcription
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vocabularyId** | **string**| The vocabulary identifier (name). | 
- **vocabulary** | [**VbVocabulary**](VbVocabulary.md)| Vocabulary defintion. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **vocabularyId** | **string**| The vocabulary identifier (name). | 
+  **vocabulary** | [**VbVocabulary**](VbVocabulary.md)| Vocabulary defintion. | 
 
 ### Return type
 
@@ -81,22 +79,21 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteKeywordSpottingGroupById**
-> DeleteKeywordSpottingGroupById($groupId)
-
+> DeleteKeywordSpottingGroupById(ctx, groupId)
 Delete keyword spotting group
 
 Delete the keyword spotting group
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| The keyword spotting group identifier. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **groupId** | **string**| The keyword spotting group identifier. | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -110,22 +107,21 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteVocabularyById**
-> DeleteVocabularyById($vocabularyId)
-
+> DeleteVocabularyById(ctx, vocabularyId)
 Delete a custom vocabulary
 
 Delete a custom vocabulary
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vocabularyId** | **string**| The vocabulary identifier (name) | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **vocabularyId** | **string**| The vocabulary identifier (name) | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -139,18 +135,17 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetClassifier**
-> VbClassifierModel GetClassifier($classifierId)
-
+> VbClassifierModel GetClassifier(ctx, classifierId)
 Retrieve details about a predictive classification model
 
 Get the classifier model
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **classifierId** | **string**| The classifier model identifier. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **classifierId** | **string**| The classifier model identifier. | 
 
 ### Return type
 
@@ -168,14 +163,12 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetClassifiers**
-> VbClassifierModelsResponse GetClassifiers()
-
+> VbClassifierModelsResponse GetClassifiers(ctx, )
 List predictive classification models
 
 List available predictive models for classification
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -194,18 +187,17 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDetector**
-> VbDetectorModel GetDetector($detectorId)
-
+> VbDetectorModel GetDetector(ctx, detectorId)
 Retrieve details about a detection model
 
 Retrieve details about a detection model
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **detectorId** | **string**| The detector model identifier. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **detectorId** | **string**| The detector model identifier. | 
 
 ### Return type
 
@@ -223,14 +215,12 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDetectors**
-> VbDetectorModelsResponse GetDetectors()
-
+> VbDetectorModelsResponse GetDetectors(ctx, )
 List detection models
 
 List available detection models
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -249,18 +239,17 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetKeywordSpottingGroupById**
-> VbKeywordGroup GetKeywordSpottingGroupById($groupId)
-
+> VbKeywordGroup GetKeywordSpottingGroupById(ctx, groupId)
 Retrieve a keyword spotting Group
 
 Retrieve a keyword spotting group with its keywords
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Keyword spotting group identifier | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **groupId** | **string**| Keyword spotting group identifier | 
 
 ### Return type
 
@@ -278,14 +267,12 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetKeywordSpottingGroups**
-> VbKeywordGroupsResponse GetKeywordSpottingGroups()
-
+> VbKeywordGroupsResponse GetKeywordSpottingGroups(ctx, )
 List keyword spotting groups
 
 Get all defined keyword spotting groups
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -304,14 +291,12 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSearchableFields**
-> VbSearchableFields GetSearchableFields()
-
+> VbSearchableFields GetSearchableFields(ctx, )
 Retrieve the list of extended metadata searchable fields
 
 Get searchable fields
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -330,14 +315,12 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVocabularies**
-> VbVocabulariesResponse GetVocabularies()
-
+> VbVocabulariesResponse GetVocabularies(ctx, )
 List custom vocabularies
 
 List all defined custom vocabularies. Custom vocabularies are used to improve accurary of transcription
 
-
-### Parameters
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
@@ -356,18 +339,17 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetVocabularyById**
-> VbVocabulary GetVocabularyById($vocabularyId)
-
+> VbVocabulary GetVocabularyById(ctx, vocabularyId)
 Retrieve a custom vocabulary.
 
 Retrieve a custom vocabulary
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vocabularyId** | **string**| The vocabulary identifier (name) | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **vocabularyId** | **string**| The vocabulary identifier (name) | 
 
 ### Return type
 
@@ -385,18 +367,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetSearchableFields**
-> VbSearchableFields SetSearchableFields($searchableFields)
-
+> VbSearchableFields SetSearchableFields(ctx, searchableFields)
 Define extended metadata searchable fields
 
 Create or update custom parameters of metadata for search
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchableFields** | [**VbSearchableFields**](VbSearchableFields.md)| Key config. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **searchableFields** | [**VbSearchableFields**](VbSearchableFields.md)| Key config. | 
 
 ### Return type
 

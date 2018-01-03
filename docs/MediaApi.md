@@ -22,22 +22,21 @@ Method | HTTP request | Description
 
 
 # **DeleteMediaById**
-> DeleteMediaById($mediaId)
-
+> DeleteMediaById(ctx, mediaId)
 Delete a media, transcripts and analytics results
 
 Delete this media
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Media identifier, a UUID. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
@@ -51,19 +50,26 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetMediaById**
-> VbMedia GetMediaById($mediaId, $includeAlternateFormat)
-
+> VbMedia GetMediaById(ctx, mediaId, optional)
 Retrieve transcript and analytical results from a media record
 
 Retrieve analytical results from a previously uploaded media
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **mediaId** | **string**| Media identifier, a UUID. | 
- **includeAlternateFormat** | [**[]string**](string.md)| Set of alternate formats to include in the response | [optional] 
+ **includeAlternateFormat** | [**[]string**](string.md)| Set of alternate formats to include in the response | 
 
 ### Return type
 
@@ -81,18 +87,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetMetadataById**
-> VbMetadata GetMetadataById($mediaId)
-
+> VbMetadata GetMetadataById(ctx, mediaId)
 Retrieve metadata associated with a media record
 
 Retrieve the media metadata
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Media identifier, a UUID. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
 
 ### Return type
 
@@ -110,18 +115,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetProgressById**
-> VbJob GetProgressById($mediaId)
-
+> VbJob GetProgressById(ctx, mediaId)
 Retrieve processing progress
 
 Retrieve processing progress for a given media
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Media identifier, a UUID. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
 
 ### Return type
 
@@ -139,19 +143,18 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetStreamByMediaIdAndName**
-> VbStream GetStreamByMediaIdAndName($mediaId, $streamName)
-
+> VbStream GetStreamByMediaIdAndName(ctx, mediaId, streamName)
 Downloads the media identified by the stream name
 
 Returns a redirect to the named media stream
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Media identifier, a UUID. | 
- **streamName** | **string**| A stream name | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
+  **streamName** | **string**| A stream name | 
 
 ### Return type
 
@@ -169,18 +172,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetStreamsById**
-> VbStreams GetStreamsById($mediaId)
-
+> VbStreams GetStreamsById(ctx, mediaId)
 List streams
 
 Get list of available media URLs
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Media identifier, a UUID. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
 
 ### Return type
 
@@ -198,18 +200,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSubtitleDfxpById**
-> string GetSubtitleDfxpById($mediaId)
-
+> string GetSubtitleDfxpById(ctx, mediaId)
 Retrieve DFXP transcript
 
 Retrieve the transcript from a given media in DFXP format
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Media identifier, a UUID. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
 
 ### Return type
 
@@ -227,18 +228,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSubtitleWebVttById**
-> string GetSubtitleWebVttById($mediaId)
-
+> string GetSubtitleWebVttById(ctx, mediaId)
 Retrieve WEBVTT transcript
 
 Retrieve the transcript from a given media in WEBVTT format
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Media identifier, a UUID. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
 
 ### Return type
 
@@ -256,18 +256,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetSubtitlesById**
-> string GetSubtitlesById($mediaId)
-
+> string GetSubtitlesById(ctx, mediaId)
 Retrieve SRT transcript
 
 Retrieve the transcript from a given media in SRT (subtitles) format
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Media identifier, a UUID. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
 
 ### Return type
 
@@ -285,18 +284,17 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetTextById**
-> string GetTextById($mediaId)
-
+> string GetTextById(ctx, mediaId)
 Retrieve text transcript
 
 Retrieve the transcript from a given media in plain text format
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Media identifier, a UUID. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Media identifier, a UUID. | 
 
 ### Return type
 
@@ -314,19 +312,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetTranscript**
-> VbTranscript GetTranscript($mediaId, $includeAlternateFormat)
-
+> VbTranscript GetTranscript(ctx, mediaId, optional)
 Retrieve transcript
 
 Retrieve the transcript from a given media
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Get media by Id. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **mediaId** | **string**| Get media by Id. | 
- **includeAlternateFormat** | [**[]string**](string.md)| Set of alternate formats to include in the response | [optional] 
+ **includeAlternateFormat** | [**[]string**](string.md)| Set of alternate formats to include in the response | 
 
 ### Return type
 
@@ -344,26 +349,32 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **MediaQuery**
-> VbMediaQueryResponse MediaQuery($query, $externalId, $before, $after, $extendedFilter, $onOrAfterDate, $onOrBeforeDate, $sortOrder, $limit)
-
+> VbMediaQueryResponse MediaQuery(ctx, optional)
 List media records
 
 Retrieve a list of media previously uploaded that match a criteria
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **string**| The full text search | [optional] 
- **externalId** | **string**| Media tagged with externalId in the metadata. | [optional] 
- **before** | **string**| Find media created before this mediaId | [optional] 
- **after** | **string**| Find media created after this mediaId | [optional] 
- **extendedFilter** | [**[]string**](string.md)| A special filter which is of the form &#39;extendedFilter&#x3D;Name;Value&#39; which allows you to filter by extended metadata. | [optional] 
- **onOrAfterDate** | **time.Time**| Media created on or after date. | [optional] 
- **onOrBeforeDate** | **time.Time**| Media created on or before date. | [optional] 
- **sortOrder** | **string**| Sort order. | [optional] 
- **limit** | **int32**| Control the number of values returned. | [optional] 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **string**| The full text search | 
+ **externalId** | **string**| Media tagged with externalId in the metadata. | 
+ **before** | **string**| Find media created before this mediaId | 
+ **after** | **string**| Find media created after this mediaId | 
+ **extendedFilter** | [**[]string**](string.md)| A special filter which is of the form &#39;extendedFilter&#x3D;Name;Value&#39; which allows you to filter by extended metadata. | 
+ **onOrAfterDate** | **time.Time**| Media created on or after date. | 
+ **onOrBeforeDate** | **time.Time**| Media created on or before date. | 
+ **sortOrder** | **string**| Sort order. | 
+ **limit** | **int32**| Control the number of values returned. | 
 
 ### Return type
 
@@ -381,22 +392,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostMedia**
-> VbMedia PostMedia($media, $mediaUrl, $configuration, $metadata, $transcript)
-
+> VbMedia PostMedia(ctx, optional)
 Upload a media file for transcription and analysis
 
 Upload new new media to the service as an attachment or from a url
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **media** | ***os.File**| Media file attached to the request. | [optional] 
- **mediaUrl** | **string**| URL where media file can be downloaded. | [optional] 
- **configuration** | **string**| A JSON object with configuration options. | [optional] 
- **metadata** | **string**| Metadata about the file being posted. | [optional] 
- **transcript** | **string**| A transcript | [optional] 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **media** | ***os.File**| Media file attached to the request. | 
+ **mediaUrl** | **string**| URL where media file can be downloaded. | 
+ **configuration** | **string**| A JSON object with configuration options. | 
+ **metadata** | **string**| Metadata about the file being posted. | 
+ **transcript** | **string**| A transcript | 
 
 ### Return type
 
@@ -414,21 +431,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **PostMediaById**
-> VbMedia PostMediaById($mediaId, $configuration, $metadata, $transcript)
-
+> VbMedia PostMediaById(ctx, mediaId, optional)
 Align a transcript and re-run the job
 
 Upload a transcript to the service as an attachment for alignment and re-running of the job
 
+### Required Parameters
 
-### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| A JSON object with configuration options. | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **mediaId** | **string**| A JSON object with configuration options. | 
- **configuration** | **string**| A JSON object with configuration options. | [optional] 
- **metadata** | **string**| Metadata about the file being posted. | [optional] 
- **transcript** | **string**| A transcript | [optional] 
+ **configuration** | **string**| A JSON object with configuration options. | 
+ **metadata** | **string**| Metadata about the file being posted. | 
+ **transcript** | **string**| A transcript | 
 
 ### Return type
 
@@ -446,19 +470,18 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SetMetadataById**
-> VbMetadata SetMetadataById($mediaId, $metadata)
-
+> VbMetadata SetMetadataById(ctx, mediaId, metadata)
 Update media metadata
 
 Set or update the media metadata
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **mediaId** | **string**| Get media by Id. | 
- **metadata** | [**VbMetadata**](VbMetadata.md)| metadata. | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **mediaId** | **string**| Get media by Id. | 
+  **metadata** | [**VbMetadata**](VbMetadata.md)| metadata. | 
 
 ### Return type
 
