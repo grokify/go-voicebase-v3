@@ -15,5 +15,5 @@ type VbVocabularyType string
 // List of VbVocabularyType
 const (
 	SCRIPTS VbVocabularyType = "scripts"
-	TERMS VbVocabularyType = "terms"
+	TERMS   VbVocabularyType = "terms"
 )

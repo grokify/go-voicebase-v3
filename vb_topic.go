@@ -11,7 +11,6 @@
 package voicebase
 
 type VbTopic struct {
-
 	TopicName string `json:"topicName,omitempty"`
 
 	Relevance float64 `json:"relevance,omitempty"`

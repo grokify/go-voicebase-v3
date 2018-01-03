@@ -11,6 +11,5 @@
 package voicebase
 
 type VbKeysResponse struct {
-
 	Keys []VbKey `json:"keys,omitempty"`
 }

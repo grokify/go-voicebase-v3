@@ -11,7 +11,6 @@
 package voicebase
 
 type VbVocabulary struct {
-
 	VocabularyName string `json:"vocabularyName,omitempty"`
 
 	VocabularyType *VbVocabularyType `json:"vocabularyType,omitempty"`

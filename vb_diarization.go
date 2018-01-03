@@ -11,7 +11,6 @@
 package voicebase
 
 type VbDiarization struct {
-
 	Band string `json:"band,omitempty"`
 
 	Env string `json:"env,omitempty"`

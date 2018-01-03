@@ -14,7 +14,7 @@ type VbPriorityEnum string
 
 // List of VbPriorityEnum
 const (
-	HIGH VbPriorityEnum = "high"
+	HIGH   VbPriorityEnum = "high"
 	NORMAL VbPriorityEnum = "normal"
-	LOW VbPriorityEnum = "low"
+	LOW    VbPriorityEnum = "low"
 )

@@ -11,13 +11,13 @@
 package voicebase
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -27,20 +27,19 @@ var (
 
 type DefinitionApiService service
 
-
 /* DefinitionApiService Create or update keyword spotting group
- Create or update a keyword spotting group with a set of keywords
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param groupId The keyword spotting group identifier.
- @param keywordSpottingGroup Keyword Spotting Group definition
- @return VbKeywordGroup*/
-func (a *DefinitionApiService) CreateKeywordSpottingGroup(ctx context.Context, groupId string, keywordSpottingGroup VbKeywordGroup) (VbKeywordGroup,  *http.Response, error) {
+Create or update a keyword spotting group with a set of keywords
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param groupId The keyword spotting group identifier.
+@param keywordSpottingGroup Keyword Spotting Group definition
+@return VbKeywordGroup*/
+func (a *DefinitionApiService) CreateKeywordSpottingGroup(ctx context.Context, groupId string, keywordSpottingGroup VbKeywordGroup) (VbKeywordGroup, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbKeywordGroup
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbKeywordGroup
 	)
 
 	// create path and map variables
@@ -51,9 +50,8 @@ func (a *DefinitionApiService) CreateKeywordSpottingGroup(ctx context.Context, g
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -64,7 +62,7 @@ func (a *DefinitionApiService) CreateKeywordSpottingGroup(ctx context.Context, g
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -104,23 +102,22 @@ func (a *DefinitionApiService) CreateKeywordSpottingGroup(ctx context.Context, g
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService Create or update a custom vocabulary
- Create or update a custom vocabulary. Custom vocabularies are used to improve accurary of transcription
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param vocabularyId The vocabulary identifier (name).
- @param vocabulary Vocabulary defintion.
- @return VbVocabulary*/
-func (a *DefinitionApiService) CreateVocabulary(ctx context.Context, vocabularyId string, vocabulary VbVocabulary) (VbVocabulary,  *http.Response, error) {
+Create or update a custom vocabulary. Custom vocabularies are used to improve accurary of transcription
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param vocabularyId The vocabulary identifier (name).
+@param vocabulary Vocabulary defintion.
+@return VbVocabulary*/
+func (a *DefinitionApiService) CreateVocabulary(ctx context.Context, vocabularyId string, vocabulary VbVocabulary) (VbVocabulary, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbVocabulary
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbVocabulary
 	)
 
 	// create path and map variables
@@ -131,9 +128,8 @@ func (a *DefinitionApiService) CreateVocabulary(ctx context.Context, vocabularyI
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -144,7 +140,7 @@ func (a *DefinitionApiService) CreateVocabulary(ctx context.Context, vocabularyI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -184,21 +180,20 @@ func (a *DefinitionApiService) CreateVocabulary(ctx context.Context, vocabularyI
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService Delete keyword spotting group
- Delete the keyword spotting group
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param groupId The keyword spotting group identifier.
- @return */
-func (a *DefinitionApiService) DeleteKeywordSpottingGroupById(ctx context.Context, groupId string) ( *http.Response, error) {
+Delete the keyword spotting group
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param groupId The keyword spotting group identifier.
+@return */
+func (a *DefinitionApiService) DeleteKeywordSpottingGroupById(ctx context.Context, groupId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -209,9 +204,8 @@ func (a *DefinitionApiService) DeleteKeywordSpottingGroupById(ctx context.Contex
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -222,7 +216,7 @@ func (a *DefinitionApiService) DeleteKeywordSpottingGroupById(ctx context.Contex
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -260,16 +254,16 @@ func (a *DefinitionApiService) DeleteKeywordSpottingGroupById(ctx context.Contex
 }
 
 /* DefinitionApiService Delete a custom vocabulary
- Delete a custom vocabulary
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param vocabularyId The vocabulary identifier (name)
- @return */
-func (a *DefinitionApiService) DeleteVocabularyById(ctx context.Context, vocabularyId string) ( *http.Response, error) {
+Delete a custom vocabulary
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param vocabularyId The vocabulary identifier (name)
+@return */
+func (a *DefinitionApiService) DeleteVocabularyById(ctx context.Context, vocabularyId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -280,9 +274,8 @@ func (a *DefinitionApiService) DeleteVocabularyById(ctx context.Context, vocabul
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -293,7 +286,7 @@ func (a *DefinitionApiService) DeleteVocabularyById(ctx context.Context, vocabul
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -331,17 +324,17 @@ func (a *DefinitionApiService) DeleteVocabularyById(ctx context.Context, vocabul
 }
 
 /* DefinitionApiService Retrieve details about a predictive classification model
- Get the classifier model
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param classifierId The classifier model identifier.
- @return VbClassifierModel*/
-func (a *DefinitionApiService) GetClassifier(ctx context.Context, classifierId string) (VbClassifierModel,  *http.Response, error) {
+Get the classifier model
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param classifierId The classifier model identifier.
+@return VbClassifierModel*/
+func (a *DefinitionApiService) GetClassifier(ctx context.Context, classifierId string) (VbClassifierModel, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbClassifierModel
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbClassifierModel
 	)
 
 	// create path and map variables
@@ -352,9 +345,8 @@ func (a *DefinitionApiService) GetClassifier(ctx context.Context, classifierId s
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -365,7 +357,7 @@ func (a *DefinitionApiService) GetClassifier(ctx context.Context, classifierId s
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -403,21 +395,20 @@ func (a *DefinitionApiService) GetClassifier(ctx context.Context, classifierId s
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService List predictive classification models
- List available predictive models for classification
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return VbClassifierModelsResponse*/
-func (a *DefinitionApiService) GetClassifiers(ctx context.Context) (VbClassifierModelsResponse,  *http.Response, error) {
+List available predictive models for classification
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return VbClassifierModelsResponse*/
+func (a *DefinitionApiService) GetClassifiers(ctx context.Context) (VbClassifierModelsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbClassifierModelsResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbClassifierModelsResponse
 	)
 
 	// create path and map variables
@@ -427,9 +418,8 @@ func (a *DefinitionApiService) GetClassifiers(ctx context.Context) (VbClassifier
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -440,7 +430,7 @@ func (a *DefinitionApiService) GetClassifiers(ctx context.Context) (VbClassifier
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -478,22 +468,21 @@ func (a *DefinitionApiService) GetClassifiers(ctx context.Context) (VbClassifier
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService Retrieve details about a detection model
- Retrieve details about a detection model
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param detectorId The detector model identifier.
- @return VbDetectorModel*/
-func (a *DefinitionApiService) GetDetector(ctx context.Context, detectorId string) (VbDetectorModel,  *http.Response, error) {
+Retrieve details about a detection model
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param detectorId The detector model identifier.
+@return VbDetectorModel*/
+func (a *DefinitionApiService) GetDetector(ctx context.Context, detectorId string) (VbDetectorModel, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbDetectorModel
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbDetectorModel
 	)
 
 	// create path and map variables
@@ -504,9 +493,8 @@ func (a *DefinitionApiService) GetDetector(ctx context.Context, detectorId strin
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -517,7 +505,7 @@ func (a *DefinitionApiService) GetDetector(ctx context.Context, detectorId strin
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -555,21 +543,20 @@ func (a *DefinitionApiService) GetDetector(ctx context.Context, detectorId strin
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService List detection models
- List available detection models
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return VbDetectorModelsResponse*/
-func (a *DefinitionApiService) GetDetectors(ctx context.Context) (VbDetectorModelsResponse,  *http.Response, error) {
+List available detection models
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return VbDetectorModelsResponse*/
+func (a *DefinitionApiService) GetDetectors(ctx context.Context) (VbDetectorModelsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbDetectorModelsResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbDetectorModelsResponse
 	)
 
 	// create path and map variables
@@ -579,9 +566,8 @@ func (a *DefinitionApiService) GetDetectors(ctx context.Context) (VbDetectorMode
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -592,7 +578,7 @@ func (a *DefinitionApiService) GetDetectors(ctx context.Context) (VbDetectorMode
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -630,22 +616,21 @@ func (a *DefinitionApiService) GetDetectors(ctx context.Context) (VbDetectorMode
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService Retrieve a keyword spotting Group
- Retrieve a keyword spotting group with its keywords
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param groupId Keyword spotting group identifier
- @return VbKeywordGroup*/
-func (a *DefinitionApiService) GetKeywordSpottingGroupById(ctx context.Context, groupId string) (VbKeywordGroup,  *http.Response, error) {
+Retrieve a keyword spotting group with its keywords
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param groupId Keyword spotting group identifier
+@return VbKeywordGroup*/
+func (a *DefinitionApiService) GetKeywordSpottingGroupById(ctx context.Context, groupId string) (VbKeywordGroup, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbKeywordGroup
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbKeywordGroup
 	)
 
 	// create path and map variables
@@ -656,9 +641,8 @@ func (a *DefinitionApiService) GetKeywordSpottingGroupById(ctx context.Context, 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -669,7 +653,7 @@ func (a *DefinitionApiService) GetKeywordSpottingGroupById(ctx context.Context, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -707,21 +691,20 @@ func (a *DefinitionApiService) GetKeywordSpottingGroupById(ctx context.Context, 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService List keyword spotting groups
- Get all defined keyword spotting groups
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return VbKeywordGroupsResponse*/
-func (a *DefinitionApiService) GetKeywordSpottingGroups(ctx context.Context) (VbKeywordGroupsResponse,  *http.Response, error) {
+Get all defined keyword spotting groups
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return VbKeywordGroupsResponse*/
+func (a *DefinitionApiService) GetKeywordSpottingGroups(ctx context.Context) (VbKeywordGroupsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbKeywordGroupsResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbKeywordGroupsResponse
 	)
 
 	// create path and map variables
@@ -731,9 +714,8 @@ func (a *DefinitionApiService) GetKeywordSpottingGroups(ctx context.Context) (Vb
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -744,7 +726,7 @@ func (a *DefinitionApiService) GetKeywordSpottingGroups(ctx context.Context) (Vb
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -782,21 +764,20 @@ func (a *DefinitionApiService) GetKeywordSpottingGroups(ctx context.Context) (Vb
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService Retrieve the list of extended metadata searchable fields
- Get searchable fields
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return VbSearchableFields*/
-func (a *DefinitionApiService) GetSearchableFields(ctx context.Context) (VbSearchableFields,  *http.Response, error) {
+Get searchable fields
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return VbSearchableFields*/
+func (a *DefinitionApiService) GetSearchableFields(ctx context.Context) (VbSearchableFields, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbSearchableFields
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbSearchableFields
 	)
 
 	// create path and map variables
@@ -806,9 +787,8 @@ func (a *DefinitionApiService) GetSearchableFields(ctx context.Context) (VbSearc
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -819,7 +799,7 @@ func (a *DefinitionApiService) GetSearchableFields(ctx context.Context) (VbSearc
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -857,21 +837,20 @@ func (a *DefinitionApiService) GetSearchableFields(ctx context.Context) (VbSearc
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService List custom vocabularies
- List all defined custom vocabularies. Custom vocabularies are used to improve accurary of transcription
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return VbVocabulariesResponse*/
-func (a *DefinitionApiService) GetVocabularies(ctx context.Context) (VbVocabulariesResponse,  *http.Response, error) {
+List all defined custom vocabularies. Custom vocabularies are used to improve accurary of transcription
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return VbVocabulariesResponse*/
+func (a *DefinitionApiService) GetVocabularies(ctx context.Context) (VbVocabulariesResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbVocabulariesResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbVocabulariesResponse
 	)
 
 	// create path and map variables
@@ -881,9 +860,8 @@ func (a *DefinitionApiService) GetVocabularies(ctx context.Context) (VbVocabular
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -894,7 +872,7 @@ func (a *DefinitionApiService) GetVocabularies(ctx context.Context) (VbVocabular
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -932,22 +910,21 @@ func (a *DefinitionApiService) GetVocabularies(ctx context.Context) (VbVocabular
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService Retrieve a custom vocabulary.
- Retrieve a custom vocabulary
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param vocabularyId The vocabulary identifier (name)
- @return VbVocabulary*/
-func (a *DefinitionApiService) GetVocabularyById(ctx context.Context, vocabularyId string) (VbVocabulary,  *http.Response, error) {
+Retrieve a custom vocabulary
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param vocabularyId The vocabulary identifier (name)
+@return VbVocabulary*/
+func (a *DefinitionApiService) GetVocabularyById(ctx context.Context, vocabularyId string) (VbVocabulary, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbVocabulary
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbVocabulary
 	)
 
 	// create path and map variables
@@ -958,9 +935,8 @@ func (a *DefinitionApiService) GetVocabularyById(ctx context.Context, vocabulary
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -971,7 +947,7 @@ func (a *DefinitionApiService) GetVocabularyById(ctx context.Context, vocabulary
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1009,22 +985,21 @@ func (a *DefinitionApiService) GetVocabularyById(ctx context.Context, vocabulary
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* DefinitionApiService Define extended metadata searchable fields
- Create or update custom parameters of metadata for search
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param searchableFields Key config.
- @return VbSearchableFields*/
-func (a *DefinitionApiService) SetSearchableFields(ctx context.Context, searchableFields VbSearchableFields) (VbSearchableFields,  *http.Response, error) {
+Create or update custom parameters of metadata for search
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param searchableFields Key config.
+@return VbSearchableFields*/
+func (a *DefinitionApiService) SetSearchableFields(ctx context.Context, searchableFields VbSearchableFields) (VbSearchableFields, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbSearchableFields
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbSearchableFields
 	)
 
 	// create path and map variables
@@ -1034,9 +1009,8 @@ func (a *DefinitionApiService) SetSearchableFields(ctx context.Context, searchab
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1047,7 +1021,7 @@ func (a *DefinitionApiService) SetSearchableFields(ctx context.Context, searchab
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1087,7 +1061,5 @@ func (a *DefinitionApiService) SetSearchableFields(ctx context.Context, searchab
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

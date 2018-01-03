@@ -11,7 +11,6 @@
 package voicebase
 
 type VbProgress struct {
-
 	Finish string `json:"finish,omitempty"`
 
 	JobId string `json:"jobId,omitempty"`

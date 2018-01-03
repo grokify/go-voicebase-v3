@@ -11,7 +11,6 @@
 package voicebase
 
 type VbDetector struct {
-
 	DetectorId string `json:"detectorId,omitempty"`
 
 	DetectorName string `json:"detectorName,omitempty"`

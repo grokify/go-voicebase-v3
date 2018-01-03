@@ -11,7 +11,6 @@
 package voicebase
 
 type VbWord struct {
-
 	P int32 `json:"p,omitempty"`
 
 	C float64 `json:"c,omitempty"`

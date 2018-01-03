@@ -11,7 +11,6 @@
 package voicebase
 
 type VbParameterDefinition struct {
-
 	Name string `json:"name,omitempty"`
 
 	// whether the parameter is optional or not

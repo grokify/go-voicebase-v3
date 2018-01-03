@@ -11,6 +11,5 @@
 package voicebase
 
 type VbSearchableFields struct {
-
 	Fields []string `json:"fields,omitempty"`
 }

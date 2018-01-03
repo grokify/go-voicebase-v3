@@ -11,7 +11,6 @@
 package voicebase
 
 type VbOccurrence struct {
-
 	S int64 `json:"s,omitempty"`
 
 	E int64 `json:"e,omitempty"`

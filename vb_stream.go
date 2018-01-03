@@ -11,7 +11,6 @@
 package voicebase
 
 type VbStream struct {
-
 	Status int32 `json:"status,omitempty"`
 
 	StreamName string `json:"streamName,omitempty"`

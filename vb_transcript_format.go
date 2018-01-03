@@ -11,7 +11,6 @@
 package voicebase
 
 type VbTranscriptFormat struct {
-
 	Format string `json:"format,omitempty"`
 
 	ContentType string `json:"contentType,omitempty"`

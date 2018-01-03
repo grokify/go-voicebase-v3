@@ -11,7 +11,6 @@
 package voicebase
 
 type VbFrequency struct {
-
 	E float64 `json:"e,omitempty"`
 
 	F float64 `json:"f,omitempty"`

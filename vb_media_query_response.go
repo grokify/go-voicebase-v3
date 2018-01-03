@@ -11,6 +11,5 @@
 package voicebase
 
 type VbMediaQueryResponse struct {
-
 	Media []VbMediaSummary `json:"media,omitempty"`
 }

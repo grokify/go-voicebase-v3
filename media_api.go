@@ -11,15 +11,15 @@
 package voicebase
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
-	"os"
-	"time"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"os"
+	"strings"
+	"time"
 )
 
 // Linger please
@@ -29,18 +29,17 @@ var (
 
 type MediaApiService service
 
-
 /* MediaApiService Delete a media, transcripts and analytics results
- Delete this media
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @return */
-func (a *MediaApiService) DeleteMediaById(ctx context.Context, mediaId string) ( *http.Response, error) {
+Delete this media
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@return */
+func (a *MediaApiService) DeleteMediaById(ctx context.Context, mediaId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -51,9 +50,8 @@ func (a *MediaApiService) DeleteMediaById(ctx context.Context, mediaId string) (
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -64,7 +62,7 @@ func (a *MediaApiService) DeleteMediaById(ctx context.Context, mediaId string) (
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -102,19 +100,19 @@ func (a *MediaApiService) DeleteMediaById(ctx context.Context, mediaId string) (
 }
 
 /* MediaApiService Retrieve transcript and analytical results from a media record
- Retrieve analytical results from a previously uploaded media
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "includeAlternateFormat" ([]string) Set of alternate formats to include in the response
- @return VbMedia*/
-func (a *MediaApiService) GetMediaById(ctx context.Context, mediaId string, localVarOptionals map[string]interface{}) (VbMedia,  *http.Response, error) {
+Retrieve analytical results from a previously uploaded media
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "includeAlternateFormat" ([]string) Set of alternate formats to include in the response
+@return VbMedia*/
+func (a *MediaApiService) GetMediaById(ctx context.Context, mediaId string, localVarOptionals map[string]interface{}) (VbMedia, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbMedia
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbMedia
 	)
 
 	// create path and map variables
@@ -125,12 +123,11 @@ func (a *MediaApiService) GetMediaById(ctx context.Context, mediaId string, loca
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	if localVarTempParam, localVarOk := localVarOptionals["includeAlternateFormat"].([]string); localVarOk {
 		localVarQueryParams.Add("includeAlternateFormat", parameterToString(localVarTempParam, "csv"))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -141,7 +138,7 @@ func (a *MediaApiService) GetMediaById(ctx context.Context, mediaId string, loca
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -179,22 +176,21 @@ func (a *MediaApiService) GetMediaById(ctx context.Context, mediaId string, loca
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Retrieve metadata associated with a media record
- Retrieve the media metadata
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @return VbMetadata*/
-func (a *MediaApiService) GetMetadataById(ctx context.Context, mediaId string) (VbMetadata,  *http.Response, error) {
+Retrieve the media metadata
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@return VbMetadata*/
+func (a *MediaApiService) GetMetadataById(ctx context.Context, mediaId string) (VbMetadata, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbMetadata
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbMetadata
 	)
 
 	// create path and map variables
@@ -205,9 +201,8 @@ func (a *MediaApiService) GetMetadataById(ctx context.Context, mediaId string) (
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -218,7 +213,7 @@ func (a *MediaApiService) GetMetadataById(ctx context.Context, mediaId string) (
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -256,22 +251,21 @@ func (a *MediaApiService) GetMetadataById(ctx context.Context, mediaId string) (
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Retrieve processing progress
- Retrieve processing progress for a given media
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @return VbJob*/
-func (a *MediaApiService) GetProgressById(ctx context.Context, mediaId string) (VbJob,  *http.Response, error) {
+Retrieve processing progress for a given media
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@return VbJob*/
+func (a *MediaApiService) GetProgressById(ctx context.Context, mediaId string) (VbJob, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbJob
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbJob
 	)
 
 	// create path and map variables
@@ -282,9 +276,8 @@ func (a *MediaApiService) GetProgressById(ctx context.Context, mediaId string) (
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -295,7 +288,7 @@ func (a *MediaApiService) GetProgressById(ctx context.Context, mediaId string) (
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -333,23 +326,22 @@ func (a *MediaApiService) GetProgressById(ctx context.Context, mediaId string) (
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Downloads the media identified by the stream name
- Returns a redirect to the named media stream
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @param streamName A stream name
- @return VbStream*/
-func (a *MediaApiService) GetStreamByMediaIdAndName(ctx context.Context, mediaId string, streamName string) (VbStream,  *http.Response, error) {
+Returns a redirect to the named media stream
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@param streamName A stream name
+@return VbStream*/
+func (a *MediaApiService) GetStreamByMediaIdAndName(ctx context.Context, mediaId string, streamName string) (VbStream, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbStream
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbStream
 	)
 
 	// create path and map variables
@@ -361,9 +353,8 @@ func (a *MediaApiService) GetStreamByMediaIdAndName(ctx context.Context, mediaId
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -374,7 +365,7 @@ func (a *MediaApiService) GetStreamByMediaIdAndName(ctx context.Context, mediaId
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -412,22 +403,21 @@ func (a *MediaApiService) GetStreamByMediaIdAndName(ctx context.Context, mediaId
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService List streams
- Get list of available media URLs
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @return VbStreams*/
-func (a *MediaApiService) GetStreamsById(ctx context.Context, mediaId string) (VbStreams,  *http.Response, error) {
+Get list of available media URLs
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@return VbStreams*/
+func (a *MediaApiService) GetStreamsById(ctx context.Context, mediaId string) (VbStreams, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbStreams
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbStreams
 	)
 
 	// create path and map variables
@@ -438,9 +428,8 @@ func (a *MediaApiService) GetStreamsById(ctx context.Context, mediaId string) (V
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -451,7 +440,7 @@ func (a *MediaApiService) GetStreamsById(ctx context.Context, mediaId string) (V
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -489,22 +478,21 @@ func (a *MediaApiService) GetStreamsById(ctx context.Context, mediaId string) (V
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Retrieve DFXP transcript
- Retrieve the transcript from a given media in DFXP format
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @return string*/
-func (a *MediaApiService) GetSubtitleDfxpById(ctx context.Context, mediaId string) (string,  *http.Response, error) {
+Retrieve the transcript from a given media in DFXP format
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@return string*/
+func (a *MediaApiService) GetSubtitleDfxpById(ctx context.Context, mediaId string) (string, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  string
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     string
 	)
 
 	// create path and map variables
@@ -515,9 +503,8 @@ func (a *MediaApiService) GetSubtitleDfxpById(ctx context.Context, mediaId strin
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -528,7 +515,7 @@ func (a *MediaApiService) GetSubtitleDfxpById(ctx context.Context, mediaId strin
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/ttml+xml",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -566,22 +553,21 @@ func (a *MediaApiService) GetSubtitleDfxpById(ctx context.Context, mediaId strin
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Retrieve WEBVTT transcript
- Retrieve the transcript from a given media in WEBVTT format
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @return string*/
-func (a *MediaApiService) GetSubtitleWebVttById(ctx context.Context, mediaId string) (string,  *http.Response, error) {
+Retrieve the transcript from a given media in WEBVTT format
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@return string*/
+func (a *MediaApiService) GetSubtitleWebVttById(ctx context.Context, mediaId string) (string, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  string
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     string
 	)
 
 	// create path and map variables
@@ -592,9 +578,8 @@ func (a *MediaApiService) GetSubtitleWebVttById(ctx context.Context, mediaId str
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -605,7 +590,7 @@ func (a *MediaApiService) GetSubtitleWebVttById(ctx context.Context, mediaId str
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"text/vtt",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -643,22 +628,21 @@ func (a *MediaApiService) GetSubtitleWebVttById(ctx context.Context, mediaId str
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Retrieve SRT transcript
- Retrieve the transcript from a given media in SRT (subtitles) format
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @return string*/
-func (a *MediaApiService) GetSubtitlesById(ctx context.Context, mediaId string) (string,  *http.Response, error) {
+Retrieve the transcript from a given media in SRT (subtitles) format
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@return string*/
+func (a *MediaApiService) GetSubtitlesById(ctx context.Context, mediaId string) (string, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  string
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     string
 	)
 
 	// create path and map variables
@@ -669,9 +653,8 @@ func (a *MediaApiService) GetSubtitlesById(ctx context.Context, mediaId string) 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -682,7 +665,7 @@ func (a *MediaApiService) GetSubtitlesById(ctx context.Context, mediaId string) 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"text/srt",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -720,22 +703,21 @@ func (a *MediaApiService) GetSubtitlesById(ctx context.Context, mediaId string) 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Retrieve text transcript
- Retrieve the transcript from a given media in plain text format
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Media identifier, a UUID.
- @return string*/
-func (a *MediaApiService) GetTextById(ctx context.Context, mediaId string) (string,  *http.Response, error) {
+Retrieve the transcript from a given media in plain text format
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Media identifier, a UUID.
+@return string*/
+func (a *MediaApiService) GetTextById(ctx context.Context, mediaId string) (string, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  string
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     string
 	)
 
 	// create path and map variables
@@ -746,9 +728,8 @@ func (a *MediaApiService) GetTextById(ctx context.Context, mediaId string) (stri
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -759,7 +740,7 @@ func (a *MediaApiService) GetTextById(ctx context.Context, mediaId string) (stri
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"text/plain",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -797,24 +778,23 @@ func (a *MediaApiService) GetTextById(ctx context.Context, mediaId string) (stri
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Retrieve transcript
- Retrieve the transcript from a given media
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Get media by Id.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "includeAlternateFormat" ([]string) Set of alternate formats to include in the response
- @return VbTranscript*/
-func (a *MediaApiService) GetTranscript(ctx context.Context, mediaId string, localVarOptionals map[string]interface{}) (VbTranscript,  *http.Response, error) {
+Retrieve the transcript from a given media
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Get media by Id.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "includeAlternateFormat" ([]string) Set of alternate formats to include in the response
+@return VbTranscript*/
+func (a *MediaApiService) GetTranscript(ctx context.Context, mediaId string, localVarOptionals map[string]interface{}) (VbTranscript, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbTranscript
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbTranscript
 	)
 
 	// create path and map variables
@@ -825,12 +805,11 @@ func (a *MediaApiService) GetTranscript(ctx context.Context, mediaId string, loc
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	if localVarTempParam, localVarOk := localVarOptionals["includeAlternateFormat"].([]string); localVarOk {
 		localVarQueryParams.Add("includeAlternateFormat", parameterToString(localVarTempParam, "csv"))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -841,7 +820,7 @@ func (a *MediaApiService) GetTranscript(ctx context.Context, mediaId string, loc
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -879,31 +858,30 @@ func (a *MediaApiService) GetTranscript(ctx context.Context, mediaId string, loc
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService List media records
- Retrieve a list of media previously uploaded that match a criteria
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "query" (string) The full text search
-     @param "externalId" (string) Media tagged with externalId in the metadata.
-     @param "before" (string) Find media created before this mediaId
-     @param "after" (string) Find media created after this mediaId
-     @param "extendedFilter" ([]string) A special filter which is of the form &#39;extendedFilter&#x3D;Name;Value&#39; which allows you to filter by extended metadata.
-     @param "onOrAfterDate" (time.Time) Media created on or after date.
-     @param "onOrBeforeDate" (time.Time) Media created on or before date.
-     @param "sortOrder" (string) Sort order.
-     @param "limit" (int32) Control the number of values returned.
- @return VbMediaQueryResponse*/
-func (a *MediaApiService) MediaQuery(ctx context.Context, localVarOptionals map[string]interface{}) (VbMediaQueryResponse,  *http.Response, error) {
+Retrieve a list of media previously uploaded that match a criteria
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "query" (string) The full text search
+    @param "externalId" (string) Media tagged with externalId in the metadata.
+    @param "before" (string) Find media created before this mediaId
+    @param "after" (string) Find media created after this mediaId
+    @param "extendedFilter" ([]string) A special filter which is of the form &#39;extendedFilter&#x3D;Name;Value&#39; which allows you to filter by extended metadata.
+    @param "onOrAfterDate" (time.Time) Media created on or after date.
+    @param "onOrBeforeDate" (time.Time) Media created on or before date.
+    @param "sortOrder" (string) Sort order.
+    @param "limit" (int32) Control the number of values returned.
+@return VbMediaQueryResponse*/
+func (a *MediaApiService) MediaQuery(ctx context.Context, localVarOptionals map[string]interface{}) (VbMediaQueryResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbMediaQueryResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbMediaQueryResponse
 	)
 
 	// create path and map variables
@@ -966,7 +944,7 @@ func (a *MediaApiService) MediaQuery(ctx context.Context, localVarOptionals map[
 		localVarQueryParams.Add("limit", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -977,7 +955,7 @@ func (a *MediaApiService) MediaQuery(ctx context.Context, localVarOptionals map[
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1015,27 +993,26 @@ func (a *MediaApiService) MediaQuery(ctx context.Context, localVarOptionals map[
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Upload a media file for transcription and analysis
- Upload new new media to the service as an attachment or from a url
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "media" (*os.File) Media file attached to the request.
-     @param "mediaUrl" (string) URL where media file can be downloaded.
-     @param "configuration" (string) A JSON object with configuration options.
-     @param "metadata" (string) Metadata about the file being posted.
-     @param "transcript" (string) A transcript
- @return VbMedia*/
-func (a *MediaApiService) PostMedia(ctx context.Context, localVarOptionals map[string]interface{}) (VbMedia,  *http.Response, error) {
+Upload new new media to the service as an attachment or from a url
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "media" (*os.File) Media file attached to the request.
+    @param "mediaUrl" (string) URL where media file can be downloaded.
+    @param "configuration" (string) A JSON object with configuration options.
+    @param "metadata" (string) Metadata about the file being posted.
+    @param "transcript" (string) A transcript
+@return VbMedia*/
+func (a *MediaApiService) PostMedia(ctx context.Context, localVarOptionals map[string]interface{}) (VbMedia, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbMedia
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbMedia
 	)
 
 	// create path and map variables
@@ -1059,7 +1036,7 @@ func (a *MediaApiService) PostMedia(ctx context.Context, localVarOptionals map[s
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "multipart/form-data", "multipart/mixed",  }
+	localVarHttpContentTypes := []string{"multipart/form-data", "multipart/mixed"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1070,7 +1047,7 @@ func (a *MediaApiService) PostMedia(ctx context.Context, localVarOptionals map[s
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1130,26 +1107,25 @@ func (a *MediaApiService) PostMedia(ctx context.Context, localVarOptionals map[s
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Align a transcript and re-run the job
- Upload a transcript to the service as an attachment for alignment and re-running of the job
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId A JSON object with configuration options.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "configuration" (string) A JSON object with configuration options.
-     @param "metadata" (string) Metadata about the file being posted.
-     @param "transcript" (string) A transcript
- @return VbMedia*/
-func (a *MediaApiService) PostMediaById(ctx context.Context, mediaId string, localVarOptionals map[string]interface{}) (VbMedia,  *http.Response, error) {
+Upload a transcript to the service as an attachment for alignment and re-running of the job
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId A JSON object with configuration options.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "configuration" (string) A JSON object with configuration options.
+    @param "metadata" (string) Metadata about the file being posted.
+    @param "transcript" (string) A transcript
+@return VbMedia*/
+func (a *MediaApiService) PostMediaById(ctx context.Context, mediaId string, localVarOptionals map[string]interface{}) (VbMedia, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbMedia
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbMedia
 	)
 
 	// create path and map variables
@@ -1171,7 +1147,7 @@ func (a *MediaApiService) PostMediaById(ctx context.Context, mediaId string, loc
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "multipart/form-data", "multipart/mixed",  }
+	localVarHttpContentTypes := []string{"multipart/form-data", "multipart/mixed"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1182,7 +1158,7 @@ func (a *MediaApiService) PostMediaById(ctx context.Context, mediaId string, loc
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1229,23 +1205,22 @@ func (a *MediaApiService) PostMediaById(ctx context.Context, mediaId string, loc
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MediaApiService Update media metadata
- Set or update the media metadata
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param mediaId Get media by Id.
- @param metadata metadata.
- @return VbMetadata*/
-func (a *MediaApiService) SetMetadataById(ctx context.Context, mediaId string, metadata VbMetadata) (VbMetadata,  *http.Response, error) {
+Set or update the media metadata
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param mediaId Get media by Id.
+@param metadata metadata.
+@return VbMetadata*/
+func (a *MediaApiService) SetMetadataById(ctx context.Context, mediaId string, metadata VbMetadata) (VbMetadata, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbMetadata
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbMetadata
 	)
 
 	// create path and map variables
@@ -1256,9 +1231,8 @@ func (a *MediaApiService) SetMetadataById(ctx context.Context, mediaId string, m
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1269,7 +1243,7 @@ func (a *MediaApiService) SetMetadataById(ctx context.Context, mediaId string, m
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1309,7 +1283,5 @@ func (a *MediaApiService) SetMetadataById(ctx context.Context, mediaId string, m
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

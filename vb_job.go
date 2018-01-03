@@ -11,7 +11,6 @@
 package voicebase
 
 type VbJob struct {
-
 	MediaId string `json:"mediaId,omitempty"`
 
 	JobId string `json:"jobId,omitempty"`

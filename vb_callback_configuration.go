@@ -11,7 +11,6 @@
 package voicebase
 
 type VbCallbackConfiguration struct {
-
 	Url string `json:"url,omitempty"`
 
 	Method *VbHttpMethodEnum `json:"method,omitempty"`

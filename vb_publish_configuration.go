@@ -11,6 +11,5 @@
 package voicebase
 
 type VbPublishConfiguration struct {
-
 	Callbacks []VbCallbackConfiguration `json:"callbacks,omitempty"`
 }

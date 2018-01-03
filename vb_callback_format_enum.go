@@ -14,9 +14,9 @@ type VbCallbackFormatEnum string
 
 // List of VbCallbackFormatEnum
 const (
-	JSON VbCallbackFormatEnum = "json"
-	TEXT VbCallbackFormatEnum = "text"
-	SRT VbCallbackFormatEnum = "srt"
+	JSON   VbCallbackFormatEnum = "json"
+	TEXT   VbCallbackFormatEnum = "text"
+	SRT    VbCallbackFormatEnum = "srt"
 	WEBVTT VbCallbackFormatEnum = "webvtt"
-	DFXP VbCallbackFormatEnum = "dfxp"
+	DFXP   VbCallbackFormatEnum = "dfxp"
 )

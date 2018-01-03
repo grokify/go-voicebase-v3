@@ -11,7 +11,6 @@
 package voicebase
 
 type VbKnowledge struct {
-
 	Keywords []VbKeyword `json:"keywords,omitempty"`
 
 	Topics []VbTopic `json:"topics,omitempty"`

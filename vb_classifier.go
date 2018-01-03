@@ -11,7 +11,6 @@
 package voicebase
 
 type VbClassifier struct {
-
 	ClassifierId string `json:"classifierId,omitempty"`
 
 	ClassifierName string `json:"classifierName,omitempty"`

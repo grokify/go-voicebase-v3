@@ -11,7 +11,6 @@
 package voicebase
 
 type VbReference struct {
-
 	Name string `json:"name,omitempty"`
 
 	Score float64 `json:"score,omitempty"`

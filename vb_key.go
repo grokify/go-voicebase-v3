@@ -15,7 +15,6 @@ import (
 )
 
 type VbKey struct {
-
 	Id string `json:"id,omitempty"`
 
 	BearerToken string `json:"bearerToken,omitempty"`

@@ -15,5 +15,5 @@ type VbHttpMethodEnum string
 // List of VbHttpMethodEnum
 const (
 	POST VbHttpMethodEnum = "post"
-	PUT VbHttpMethodEnum = "put"
+	PUT  VbHttpMethodEnum = "put"
 )

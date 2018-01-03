@@ -14,9 +14,9 @@ type VbStatusEnum string
 
 // List of VbStatusEnum
 const (
-	ACCEPTED VbStatusEnum = "accepted"
-	FAILED VbStatusEnum = "failed"
+	ACCEPTED  VbStatusEnum = "accepted"
+	FAILED    VbStatusEnum = "failed"
 	SCHEDULED VbStatusEnum = "scheduled"
-	RUNNING VbStatusEnum = "running"
-	FINISHED VbStatusEnum = "finished"
+	RUNNING   VbStatusEnum = "running"
+	FINISHED  VbStatusEnum = "finished"
 )

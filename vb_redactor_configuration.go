@@ -11,7 +11,6 @@
 package voicebase
 
 type VbRedactorConfiguration struct {
-
 	Transcript *VbTranscriptRedactorConfiguration `json:"transcript,omitempty"`
 
 	Audio *VbAudioRedactorConfiguration `json:"audio,omitempty"`

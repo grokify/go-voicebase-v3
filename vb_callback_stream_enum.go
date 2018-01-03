@@ -14,6 +14,6 @@ type VbCallbackStreamEnum string
 
 // List of VbCallbackStreamEnum
 const (
-	ORIGINAL VbCallbackStreamEnum = "original"
+	ORIGINAL       VbCallbackStreamEnum = "original"
 	REDACTED_AUDIO VbCallbackStreamEnum = "redacted-audio"
 )

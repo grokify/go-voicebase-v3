@@ -11,7 +11,6 @@
 package voicebase
 
 type VbDetectedSegment struct {
-
 	SpeakerName string `json:"speakerName,omitempty"`
 
 	Occurrences []VbOccurrence `json:"occurrences,omitempty"`

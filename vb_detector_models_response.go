@@ -11,6 +11,5 @@
 package voicebase
 
 type VbDetectorModelsResponse struct {
-
 	Detectors []VbDetectorModel `json:"detectors,omitempty"`
 }

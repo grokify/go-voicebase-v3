@@ -11,6 +11,5 @@
 package voicebase
 
 type VbVocabularyScriptConfiguration struct {
-
 	Script string `json:"script,omitempty"`
 }

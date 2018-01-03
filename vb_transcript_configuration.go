@@ -11,7 +11,6 @@
 package voicebase
 
 type VbTranscriptConfiguration struct {
-
 	Formatting *VbFormattingConfiguration `json:"formatting,omitempty"`
 
 	ContentFiltering *VbContentFilteringConfiguration `json:"contentFiltering,omitempty"`

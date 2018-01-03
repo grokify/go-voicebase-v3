@@ -11,6 +11,5 @@
 package voicebase
 
 type VbStreams struct {
-
 	Streams []VbStream `json:"streams,omitempty"`
 }

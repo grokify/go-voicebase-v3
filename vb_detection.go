@@ -11,7 +11,6 @@
 package voicebase
 
 type VbDetection struct {
-
 	DetectorClass int32 `json:"detectorClass,omitempty"`
 
 	DetectorClassLabel string `json:"detectorClassLabel,omitempty"`

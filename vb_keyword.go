@@ -11,7 +11,6 @@
 package voicebase
 
 type VbKeyword struct {
-
 	Keyword string `json:"keyword,omitempty"`
 
 	Relevance float64 `json:"relevance,omitempty"`

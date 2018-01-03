@@ -11,7 +11,6 @@
 package voicebase
 
 type VbClass struct {
-
 	ClassLabel string `json:"classLabel,omitempty"`
 
 	ClassValue int32 `json:"classValue,omitempty"`

@@ -11,6 +11,5 @@
 package voicebase
 
 type VbClassifierModelsResponse struct {
-
 	Classifiers []VbClassifierModel `json:"classifiers,omitempty"`
 }

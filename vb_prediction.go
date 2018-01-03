@@ -11,7 +11,6 @@
 package voicebase
 
 type VbPrediction struct {
-
 	Classifiers []VbClassifier `json:"classifiers,omitempty"`
 
 	Detectors []VbDetector `json:"detectors,omitempty"`

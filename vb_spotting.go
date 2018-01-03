@@ -11,6 +11,5 @@
 package voicebase
 
 type VbSpotting struct {
-
 	Groups []VbGroup `json:"groups,omitempty"`
 }

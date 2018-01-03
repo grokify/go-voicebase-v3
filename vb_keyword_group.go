@@ -11,7 +11,6 @@
 package voicebase
 
 type VbKeywordGroup struct {
-
 	GroupName string `json:"groupName,omitempty"`
 
 	Keywords []string `json:"keywords,omitempty"`

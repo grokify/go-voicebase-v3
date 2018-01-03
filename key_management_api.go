@@ -11,13 +11,13 @@
 package voicebase
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -27,19 +27,18 @@ var (
 
 type KeyManagementApiService service
 
-
 /* KeyManagementApiService Create API Key
- Create a new API key for the current user
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param key Key config.
- @return VbKey*/
-func (a *KeyManagementApiService) CreateKey(ctx context.Context, key VbKeyConfiguration) (VbKey,  *http.Response, error) {
+Create a new API key for the current user
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param key Key config.
+@return VbKey*/
+func (a *KeyManagementApiService) CreateKey(ctx context.Context, key VbKeyConfiguration) (VbKey, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbKey
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbKey
 	)
 
 	// create path and map variables
@@ -49,9 +48,8 @@ func (a *KeyManagementApiService) CreateKey(ctx context.Context, key VbKeyConfig
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -62,7 +60,7 @@ func (a *KeyManagementApiService) CreateKey(ctx context.Context, key VbKeyConfig
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -102,21 +100,20 @@ func (a *KeyManagementApiService) CreateKey(ctx context.Context, key VbKeyConfig
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* KeyManagementApiService Delete API key
- Delete and revoke this API key
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param keyId The key Id.
- @return */
-func (a *KeyManagementApiService) DeleteKeyById(ctx context.Context, keyId string) ( *http.Response, error) {
+Delete and revoke this API key
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param keyId The key Id.
+@return */
+func (a *KeyManagementApiService) DeleteKeyById(ctx context.Context, keyId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -127,9 +124,8 @@ func (a *KeyManagementApiService) DeleteKeyById(ctx context.Context, keyId strin
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -140,7 +136,7 @@ func (a *KeyManagementApiService) DeleteKeyById(ctx context.Context, keyId strin
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -178,17 +174,17 @@ func (a *KeyManagementApiService) DeleteKeyById(ctx context.Context, keyId strin
 }
 
 /* KeyManagementApiService Retrieve details about an API key
- Get information about this API key
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param keyId The key Id.
- @return VbKey*/
-func (a *KeyManagementApiService) GetKeyById(ctx context.Context, keyId string) (VbKey,  *http.Response, error) {
+Get information about this API key
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param keyId The key Id.
+@return VbKey*/
+func (a *KeyManagementApiService) GetKeyById(ctx context.Context, keyId string) (VbKey, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbKey
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbKey
 	)
 
 	// create path and map variables
@@ -199,9 +195,8 @@ func (a *KeyManagementApiService) GetKeyById(ctx context.Context, keyId string) 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -212,7 +207,7 @@ func (a *KeyManagementApiService) GetKeyById(ctx context.Context, keyId string) 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -250,21 +245,20 @@ func (a *KeyManagementApiService) GetKeyById(ctx context.Context, keyId string) 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* KeyManagementApiService List API Keys
- Returns all current API keys for current user
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return VbKeysResponse*/
-func (a *KeyManagementApiService) GetKeys(ctx context.Context) (VbKeysResponse,  *http.Response, error) {
+Returns all current API keys for current user
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return VbKeysResponse*/
+func (a *KeyManagementApiService) GetKeys(ctx context.Context) (VbKeysResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  VbKeysResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     VbKeysResponse
 	)
 
 	// create path and map variables
@@ -274,9 +268,8 @@ func (a *KeyManagementApiService) GetKeys(ctx context.Context) (VbKeysResponse, 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{  }
+	localVarHttpContentTypes := []string{}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -287,7 +280,7 @@ func (a *KeyManagementApiService) GetKeys(ctx context.Context) (VbKeysResponse, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -325,7 +318,5 @@ func (a *KeyManagementApiService) GetKeys(ctx context.Context) (VbKeysResponse, 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

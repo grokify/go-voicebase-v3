@@ -11,7 +11,6 @@
 package voicebase
 
 type VbError struct {
-
 	Code int32 `json:"code,omitempty"`
 
 	Error_ string `json:"error,omitempty"`

@@ -14,7 +14,7 @@ type VbCallbackTypeEnum string
 
 // List of VbCallbackTypeEnum
 const (
-	ANALYTICS VbCallbackTypeEnum = "analytics"
+	ANALYTICS  VbCallbackTypeEnum = "analytics"
 	TRANSCRIPT VbCallbackTypeEnum = "transcript"
-	MEDIA VbCallbackTypeEnum = "media"
+	MEDIA      VbCallbackTypeEnum = "media"
 )

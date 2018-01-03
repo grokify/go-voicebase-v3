@@ -11,7 +11,6 @@
 package voicebase
 
 type VbGroup struct {
-
 	GroupName string `json:"groupName,omitempty"`
 
 	Spotted bool `json:"spotted,omitempty"`

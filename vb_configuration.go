@@ -11,7 +11,6 @@
 package voicebase
 
 type VbConfiguration struct {
-
 	SpeechModel *VbSpeechModelConfiguration `json:"speechModel,omitempty"`
 
 	// Allows to specify other languages to enable recognition when conversations occur in multiple languages

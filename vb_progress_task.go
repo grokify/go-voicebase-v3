@@ -11,7 +11,6 @@
 package voicebase
 
 type VbProgressTask struct {
-
 	TaskId string `json:"taskId,omitempty"`
 
 	Display string `json:"display,omitempty"`
