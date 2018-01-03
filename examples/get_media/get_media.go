@@ -25,11 +25,10 @@ func main() {
 		panic(err)
 	}
 
-	httpClient := oauth2more.NewClientAccessToken(
+	apiConfig := voicebase.NewConfiguration()
+	apiConfig.HTTPClient = oauth2more.NewClientAccessToken(
 		os.Getenv("VOICEBASE_BEARER_TOKEN"),
 	)
-	apiConfig := voicebase.NewConfiguration()
-	apiConfig.HTTPClient = httpClient
 	apiClient := voicebase.NewAPIClient(apiConfig)
 
 	mediaResponse, resp, err := apiClient.MediaApi.MediaQuery(
