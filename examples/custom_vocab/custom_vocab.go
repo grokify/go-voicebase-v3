@@ -11,22 +11,6 @@ import (
 	"github.com/grokify/gotilla/fmt/fmtutil"
 )
 
-/*
-func CustomVocabRequestForString(name, s string) vb.VbVocabulary {
-	return vb.VbVocabulary{
-		VocabularyName: name,
-		Terms:          []vb.VbVocabularyTerm{TermForString(s)},
-	}
-}
-
-func TermForString(s string) vb.VbVocabularyTerm {
-	return vb.VbVocabularyTerm{Term: s}
-}
-*/
-func CreateVocabulary() {
-
-}
-
 func BuildVocabulary(id string) voicebase.VbVocabulary {
 	vb := voicebase.VbVocabulary{
 		VocabularyName: id,
@@ -89,23 +73,5 @@ func main() {
 	}
 	fmtutil.PrintJSON(info)
 
-	//DeleteVocabularyById
-
-	/*
-		name := "E16505626570"
-		str := "Quentyn Blackwood"
-	*/
-	/*
-		vocabReq := CustomVocabRequestForString(name, str)
-		fmtutil.PrintJSON(vocabReq)
-
-		cfg := vb.VbConfiguration{
-			Vocabularies: []vb.VbVocabularyConfiguration{
-				{
-					VocabularyName: name,
-				},
-			},
-		}
-	*/
 	fmt.Println("DONE")
 }
