@@ -13,7 +13,7 @@ package voicebase
 type VbVocabulary struct {
 	VocabularyName string `json:"vocabularyName,omitempty"`
 
-	VocabularyType *VbVocabularyType `json:"vocabularyType,omitempty"`
+	VocabularyType VbVocabularyType `json:"vocabularyType,omitempty"`
 
 	Terms []VbVocabularyTerm `json:"terms,omitempty"`
 

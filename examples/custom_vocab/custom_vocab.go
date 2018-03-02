@@ -1,12 +1,17 @@
 package main
 
 import (
+	"context"
 	"fmt"
+	"os"
 
-	vb "github.com/grokify/go-voicebase-v3"
+	"github.com/grokify/go-voicebase-v3"
+	"github.com/grokify/go-voicebase-v3/client"
+	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 )
 
+/*
 func CustomVocabRequestForString(name, s string) vb.VbVocabulary {
 	return vb.VbVocabulary{
 		VocabularyName: name,
@@ -17,21 +22,90 @@ func CustomVocabRequestForString(name, s string) vb.VbVocabulary {
 func TermForString(s string) vb.VbVocabularyTerm {
 	return vb.VbVocabularyTerm{Term: s}
 }
+*/
+func CreateVocabulary() {
 
-func main() {
-	name := "E16505626570"
-	str := "Quentyn Blackwood"
+}
 
-	vocabReq := CustomVocabRequestForString(name, str)
-	fmtutil.PrintJSON(vocabReq)
-
-	cfg := vb.VbConfiguration{
-		Vocabularies: []vb.VbVocabularyConfiguration{
+func BuildVocabulary(id string) voicebase.VbVocabulary {
+	vb := voicebase.VbVocabulary{
+		VocabularyName: id,
+		VocabularyType: voicebase.TERMS,
+		Terms: []voicebase.VbVocabularyTerm{
 			{
-				VocabularyName: name,
+				Term: "Embbnux",
+				SoundsLike: []string{
+					"emnux", "emnucks", "emnuks",
+				},
 			},
 		},
 	}
+	return vb
+}
 
+/*
+{
+    "vocabularies": [
+        {
+            "vocabularyName": "rc-vocab",
+            "vocabularyType": "terms",
+            "terms": [
+                {
+                    "term": "Embbnux",
+                    "soundsLike": [
+                        "emnux",
+                        "emnuks"
+                    ]
+                }
+            ]
+        }
+    ],
+    "_links": {
+        "self": {
+            "href": "https://apis.voicebase.com/v3/definition/vocabularies"
+        }
+    }
+}
+*/
+
+func main() {
+	err := config.LoadDotEnvSkipEmpty(os.Getenv("ENV_PATH"), "./.env")
+	if err != nil {
+		panic(err)
+	}
+
+	apiClient := clientutil.NewApiClientToken(os.Getenv("VOICEBASE_BEARER_TOKEN"))
+
+	id := "embbnux"
+
+	info, resp, err := apiClient.DefinitionApi.CreateVocabulary(
+		context.Background(),
+		id, BuildVocabulary(id),
+	)
+	if err != nil {
+		panic(err)
+	} else if resp.StatusCode >= 300 {
+		panic(fmt.Errorf("API Status %v", resp.StatusCode))
+	}
+	fmtutil.PrintJSON(info)
+
+	//DeleteVocabularyById
+
+	/*
+		name := "E16505626570"
+		str := "Quentyn Blackwood"
+	*/
+	/*
+		vocabReq := CustomVocabRequestForString(name, str)
+		fmtutil.PrintJSON(vocabReq)
+
+		cfg := vb.VbConfiguration{
+			Vocabularies: []vb.VbVocabularyConfiguration{
+				{
+					VocabularyName: name,
+				},
+			},
+		}
+	*/
 	fmt.Println("DONE")
 }

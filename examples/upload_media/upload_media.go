@@ -9,7 +9,7 @@ import (
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	"github.com/grokify/gotilla/mime/multipartutil"
 	"github.com/grokify/gotilla/net/httputilmore"
-	"github.com/grokify/oauth2util-go"
+	"github.com/grokify/oauth2more"
 	"github.com/joho/godotenv"
 )
 
@@ -94,7 +94,7 @@ func main() {
 		panic(err)
 	}
 
-	client := oauth2util.NewClientAccessToken(os.Getenv(EnvAccessToken))
+	client := oauth2more.NewClientAccessToken(os.Getenv(EnvAccessToken))
 	verbose := true
 	UploadMedia(client, SampleFile, verbose)
 
