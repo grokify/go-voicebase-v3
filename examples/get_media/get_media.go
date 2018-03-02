@@ -37,7 +37,7 @@ func main() {
 	)
 	if err != nil {
 		panic(err)
-	} else if resp.StatusCode > 299 {
+	} else if resp.StatusCode >= 300 {
 		panic(fmt.Errorf(
 			"VoiceBase media query returned status %v",
 			resp.StatusCode,
