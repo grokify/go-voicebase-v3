@@ -1,0 +1,2709 @@
+---
+swagger: "2.0"
+info:
+  description: "APIs for speech recognition and speech analytics, powering insights\
+    \ every business needs."
+  version: "3.0.1"
+  title: "Voicebase V3 API"
+  contact:
+    name: "Voicebase Support"
+    url: "https://www.voicebase.com/contact-us/"
+    email: "support@voicebase.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "apis.voicebase.com"
+basePath: "/"
+tags:
+- name: "Media"
+  description: "the Media API"
+schemes:
+- "https"
+produces:
+- "application/json"
+paths:
+  /v3/definition/spotting/groups:
+    get:
+      tags:
+      - "Definition"
+      summary: "List keyword spotting groups"
+      description: "Get all defined keyword spotting groups"
+      operationId: "getKeywordSpottingGroups"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbKeywordGroupsResponse"
+        401:
+          description: "UnauthorizedException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/definition/spotting/groups/{groupId}:
+    get:
+      tags:
+      - "Definition"
+      summary: "Retrieve a keyword spotting Group"
+      description: "Retrieve a keyword spotting group with its keywords"
+      operationId: "getKeywordSpottingGroupById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "groupId"
+        in: "path"
+        description: "Keyword spotting group identifier"
+        required: true
+        type: "string"
+        x-exportParamName: "GroupId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbKeywordGroup"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - "Definition"
+      summary: "Create or update keyword spotting group"
+      description: "Create or update a keyword spotting group with a set of keywords"
+      operationId: "createKeywordSpottingGroup"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "groupId"
+        in: "path"
+        description: "The keyword spotting group identifier."
+        required: true
+        type: "string"
+        x-exportParamName: "GroupId"
+      - in: "body"
+        name: "keywordSpottingGroup"
+        description: "Keyword Spotting Group definition"
+        required: true
+        schema:
+          $ref: "#/definitions/VbKeywordGroup"
+        x-exportParamName: "KeywordSpottingGroup"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbKeywordGroup"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - "Definition"
+      summary: "Delete keyword spotting group"
+      description: "Delete the keyword spotting group"
+      operationId: "deleteKeywordSpottingGroupById"
+      parameters:
+      - name: "groupId"
+        in: "path"
+        description: "The keyword spotting group identifier."
+        required: true
+        type: "string"
+        x-exportParamName: "GroupId"
+      responses:
+        204:
+          description: "SuccessfulOperation"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media:
+    get:
+      tags:
+      - "Media"
+      summary: "List media records"
+      description: "Retrieve a list of media previously uploaded that match a criteria"
+      operationId: "mediaQuery"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "query"
+        in: "query"
+        description: "The full text search"
+        required: false
+        type: "string"
+        x-exportParamName: "Query"
+      - name: "externalId"
+        in: "query"
+        description: "Media tagged with externalId in the metadata."
+        required: false
+        type: "string"
+        x-exportParamName: "ExternalId"
+      - name: "before"
+        in: "query"
+        description: "Find media created before this mediaId"
+        required: false
+        type: "string"
+        x-exportParamName: "Before"
+      - name: "after"
+        in: "query"
+        description: "Find media created after this mediaId"
+        required: false
+        type: "string"
+        x-exportParamName: "After"
+      - name: "extendedFilter"
+        in: "query"
+        description: "A special filter which is of the form 'extendedFilter=Name;Value'\
+          \ which allows you to filter by extended metadata."
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+        x-exportParamName: "ExtendedFilter"
+      - name: "onOrAfterDate"
+        in: "query"
+        description: "Media created on or after date."
+        required: false
+        type: "string"
+        format: "date-time"
+        x-exportParamName: "OnOrAfterDate"
+      - name: "onOrBeforeDate"
+        in: "query"
+        description: "Media created on or before date."
+        required: false
+        type: "string"
+        format: "date-time"
+        x-exportParamName: "OnOrBeforeDate"
+      - name: "sortOrder"
+        in: "query"
+        description: "Sort order."
+        required: false
+        type: "string"
+        x-exportParamName: "SortOrder"
+      - name: "limit"
+        in: "query"
+        description: "Control the number of values returned."
+        required: false
+        type: "integer"
+        maximum: 1000
+        format: "int32"
+        x-exportParamName: "Limit"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbMediaQueryResponse"
+        400:
+          description: "BadRequestException"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - "Media"
+      summary: "Upload a media file for transcription and analysis"
+      description: "Upload new new media to the service as an attachment or from a\
+        \ url"
+      operationId: "postMedia"
+      consumes:
+      - "multipart/form-data"
+      - "multipart/mixed"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "media"
+        in: "formData"
+        description: "Media file attached to the request."
+        required: false
+        type: "file"
+        x-exportParamName: "Media"
+      - name: "mediaUrl"
+        in: "formData"
+        description: "URL where media file can be downloaded."
+        required: false
+        type: "string"
+        x-exportParamName: "MediaUrl"
+      - name: "configuration"
+        in: "formData"
+        description: "A JSON object with configuration options."
+        required: false
+        type: "string"
+        x-extended-type-ref: "#/definitions/VbConfiguration"
+        x-exportParamName: "Configuration"
+      - name: "metadata"
+        in: "formData"
+        description: "Metadata about the file being posted."
+        required: false
+        type: "string"
+        x-extended-type-ref: "#/definitions/VbMetadata"
+        x-exportParamName: "Metadata"
+      - name: "transcript"
+        in: "formData"
+        description: "A transcript"
+        required: false
+        type: "string"
+        x-exportParamName: "Transcript"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbMedia"
+        400:
+          description: "BadRequestException"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}:
+    get:
+      tags:
+      - "Media"
+      summary: "Retrieve transcript and analytical results from a media record"
+      description: "Retrieve analytical results from a previously uploaded media"
+      operationId: "getMediaById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      - name: "includeAlternateFormat"
+        in: "query"
+        description: "Set of alternate formats to include in the response"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "csv"
+        enum:
+        - "text"
+        - "srt"
+        - "dfxp"
+        - "webvtt"
+        x-exportParamName: "IncludeAlternateFormat"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbMedia"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - "Media"
+      summary: "Align a transcript and re-run the job"
+      description: "Upload a transcript to the service as an attachment for alignment\
+        \ and re-running of the job"
+      operationId: "postMediaById"
+      consumes:
+      - "multipart/form-data"
+      - "multipart/mixed"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "A JSON object with configuration options."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      - name: "configuration"
+        in: "formData"
+        description: "A JSON object with configuration options."
+        required: false
+        type: "string"
+        x-extended-type-ref: "#/definitions/VbConfiguration"
+        x-exportParamName: "Configuration"
+      - name: "metadata"
+        in: "formData"
+        description: "Metadata about the file being posted."
+        required: false
+        type: "string"
+        x-extended-type-ref: "#/definitions/VbMetadata"
+        x-exportParamName: "Metadata"
+      - name: "transcript"
+        in: "formData"
+        description: "A transcript"
+        required: false
+        type: "string"
+        x-exportParamName: "Transcript"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbMedia"
+        400:
+          description: "BadRequestException"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - "Media"
+      summary: "Delete a media, transcripts and analytics results"
+      description: "Delete this media"
+      operationId: "deleteMediaById"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      responses:
+        204:
+          description: "SuccessfulOperation"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}/transcript:
+    get:
+      tags:
+      - "Media"
+      summary: "Retrieve transcript"
+      description: "Retrieve the transcript from a given media"
+      operationId: "getTranscript"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Get media by Id."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      - name: "includeAlternateFormat"
+        in: "query"
+        description: "Set of alternate formats to include in the response"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "csv"
+        enum:
+        - "text"
+        - "srt"
+        - "dfxp"
+        - "webvtt"
+        x-exportParamName: "IncludeAlternateFormat"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbTranscript"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}/transcript/text:
+    get:
+      tags:
+      - "Media"
+      summary: "Retrieve text transcript"
+      description: "Retrieve the transcript from a given media in plain text format"
+      operationId: "getTextById"
+      produces:
+      - "text/plain"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            type: "string"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}/transcript/srt:
+    get:
+      tags:
+      - "Media"
+      summary: "Retrieve SRT transcript"
+      description: "Retrieve the transcript from a given media in SRT (subtitles)\
+        \ format"
+      operationId: "getSubtitlesById"
+      produces:
+      - "text/srt"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            type: "string"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}/transcript/dfxp:
+    get:
+      tags:
+      - "Media"
+      summary: "Retrieve DFXP transcript"
+      description: "Retrieve the transcript from a given media in DFXP format"
+      operationId: "getSubtitleDfxpById"
+      produces:
+      - "application/ttml+xml"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            type: "string"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}/transcript/webvtt:
+    get:
+      tags:
+      - "Media"
+      summary: "Retrieve WEBVTT transcript"
+      description: "Retrieve the transcript from a given media in WEBVTT format"
+      operationId: "getSubtitleWebVttById"
+      produces:
+      - "text/vtt"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            type: "string"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}/progress:
+    get:
+      tags:
+      - "Media"
+      summary: "Retrieve processing progress"
+      description: "Retrieve processing progress for a given media"
+      operationId: "getProgressById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbJob"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}/streams:
+    get:
+      tags:
+      - "Media"
+      summary: "List streams"
+      description: "Get list of available media URLs"
+      operationId: "getStreamsById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbStreams"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}/streams/{streamName}:
+    get:
+      tags:
+      - "Media"
+      summary: "Downloads the media identified by the stream name"
+      description: "Returns a redirect to the named media stream"
+      operationId: "getStreamByMediaIdAndName"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      - name: "streamName"
+        in: "path"
+        description: "A stream name"
+        required: true
+        type: "string"
+        x-exportParamName: "StreamName"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbStream"
+        302:
+          description: "SuccessfulOperation"
+          headers:
+            Location:
+              type: "string"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/media/{mediaId}/metadata:
+    get:
+      tags:
+      - "Media"
+      summary: "Retrieve metadata associated with a media record"
+      description: "Retrieve the media metadata"
+      operationId: "getMetadataById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Media identifier, a UUID."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbMetadata"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - "Media"
+      summary: "Update media metadata"
+      description: "Set or update the media metadata"
+      operationId: "setMetadataById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "mediaId"
+        in: "path"
+        description: "Get media by Id."
+        required: true
+        type: "string"
+        x-exportParamName: "MediaId"
+      - in: "body"
+        name: "metadata"
+        description: "metadata."
+        required: true
+        schema:
+          $ref: "#/definitions/VbMetadata"
+        x-exportParamName: "Metadata"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbMetadata"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/definition/prediction/classifiers:
+    get:
+      tags:
+      - "Definition"
+      summary: "List predictive classification models"
+      description: "List available predictive models for classification"
+      operationId: "getClassifiers"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbClassifierModelsResponse"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/definition/prediction/classifiers/{classifierId}:
+    get:
+      tags:
+      - "Definition"
+      summary: "Retrieve details about a predictive classification model"
+      description: "Get the classifier model"
+      operationId: "getClassifier"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "classifierId"
+        in: "path"
+        description: "The classifier model identifier."
+        required: true
+        type: "string"
+        x-exportParamName: "ClassifierId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbClassifierModel"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/definition/prediction/detectors:
+    get:
+      tags:
+      - "Definition"
+      summary: "List detection models"
+      description: "List available detection models"
+      operationId: "getDetectors"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbDetectorModelsResponse"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/definition/prediction/detectors/{detectorId}:
+    get:
+      tags:
+      - "Definition"
+      summary: "Retrieve details about a detection model"
+      description: "Retrieve details about a detection model"
+      operationId: "getDetector"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "detectorId"
+        in: "path"
+        description: "The detector model identifier."
+        required: true
+        type: "string"
+        x-exportParamName: "DetectorId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbDetectorModel"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/profile/keys:
+    get:
+      tags:
+      - "Key Management"
+      summary: "List API Keys"
+      description: "Returns all current API keys for current user"
+      operationId: "getKeys"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbKeysResponse"
+        401:
+          description: "UnauthorizedException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - "Key Management"
+      summary: "Create API Key"
+      description: "Create a new API key for the current user"
+      operationId: "createKey"
+      parameters:
+      - in: "body"
+        name: "key"
+        description: "Key config."
+        required: true
+        schema:
+          $ref: "#/definitions/VbKeyConfiguration"
+        x-exportParamName: "Key"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbKey"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/profile/keys/{keyId}:
+    get:
+      tags:
+      - "Key Management"
+      summary: "Retrieve details about an API key"
+      description: "Get information about this API key"
+      operationId: "getKeyById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "keyId"
+        in: "path"
+        description: "The key Id."
+        required: true
+        type: "string"
+        x-exportParamName: "KeyId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbKey"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - "Key Management"
+      summary: "Delete API key"
+      description: "Delete and revoke this API key"
+      operationId: "deleteKeyById"
+      parameters:
+      - name: "keyId"
+        in: "path"
+        description: "The key Id."
+        required: true
+        type: "string"
+        x-exportParamName: "KeyId"
+      responses:
+        204:
+          description: "SuccessfulOperation"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/definition/media/search:
+    get:
+      tags:
+      - "Definition"
+      summary: "Retrieve the list of extended metadata searchable fields"
+      description: "Get searchable fields"
+      operationId: "getSearchableFields"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbSearchableFields"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - "Definition"
+      summary: "Define extended metadata searchable fields"
+      description: "Create or update custom parameters of metadata for search"
+      operationId: "setSearchableFields"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "searchableFields"
+        description: "Key config."
+        required: true
+        schema:
+          $ref: "#/definitions/VbSearchableFields"
+        x-exportParamName: "SearchableFields"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbSearchableFields"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/definition/vocabularies:
+    get:
+      tags:
+      - "Definition"
+      summary: "List custom vocabularies"
+      description: "List all defined custom vocabularies. Custom vocabularies are\
+        \ used to improve accurary of transcription"
+      operationId: "getVocabularies"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbVocabulariesResponse"
+        401:
+          description: "UnauthorizedException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+  /v3/definition/vocabularies/{vocabularyId}:
+    get:
+      tags:
+      - "Definition"
+      summary: "Retrieve a custom vocabulary."
+      description: "Retrieve a custom vocabulary"
+      operationId: "getVocabularyById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "vocabularyId"
+        in: "path"
+        description: "The vocabulary identifier (name)"
+        required: true
+        type: "string"
+        x-exportParamName: "VocabularyId"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbVocabulary"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - "Definition"
+      summary: "Create or update a custom vocabulary"
+      description: "Create or update a custom vocabulary. Custom vocabularies are\
+        \ used to improve accurary of transcription"
+      operationId: "createVocabulary"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "vocabularyId"
+        in: "path"
+        description: "The vocabulary identifier (name)."
+        required: true
+        type: "string"
+        x-exportParamName: "VocabularyId"
+      - in: "body"
+        name: "vocabulary"
+        description: "Vocabulary defintion."
+        required: true
+        schema:
+          $ref: "#/definitions/VbVocabulary"
+        x-exportParamName: "Vocabulary"
+      responses:
+        200:
+          description: "SuccessfulOperation"
+          schema:
+            $ref: "#/definitions/VbVocabulary"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - "Definition"
+      summary: "Delete a custom vocabulary"
+      description: "Delete a custom vocabulary"
+      operationId: "deleteVocabularyById"
+      parameters:
+      - name: "vocabularyId"
+        in: "path"
+        description: "The vocabulary identifier (name)"
+        required: true
+        type: "string"
+        x-exportParamName: "VocabularyId"
+      responses:
+        204:
+          description: "SuccessfulOperation"
+        401:
+          description: "UnauthorizedException"
+        403:
+          description: "ForbiddenException"
+        404:
+          description: "NotFoundException"
+          schema:
+            $ref: "#/definitions/VbErrorResponse"
+      security:
+      - Authorization: []
+securityDefinitions:
+  Authorization:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+definitions:
+  VbPriorityEnum:
+    type: "string"
+    enum:
+    - "high"
+    - "normal"
+    - "low"
+  VbHttpMethodEnum:
+    type: "string"
+    enum:
+    - "post"
+    - "put"
+  VbIncludeTypeEnum:
+    type: "string"
+    enum:
+    - "knowledge"
+    - "metadata"
+    - "prediction"
+    - "spotting"
+    - "streams"
+    - "transcript"
+  VbCallbackTypeEnum:
+    type: "string"
+    enum:
+    - "analytics"
+    - "transcript"
+    - "media"
+  VbCallbackStreamEnum:
+    type: "string"
+    enum:
+    - "original"
+    - "redacted-audio"
+  VbCallbackFormatEnum:
+    type: "string"
+    enum:
+    - "json"
+    - "text"
+    - "srt"
+    - "webvtt"
+    - "dfxp"
+  VbStatusEnum:
+    type: "string"
+    enum:
+    - "accepted"
+    - "failed"
+    - "scheduled"
+    - "running"
+    - "finished"
+  VbTaskStatusEnum:
+    type: "string"
+    enum:
+    - "accepted"
+    - "failed"
+    - "exceededretries"
+    - "expired"
+    - "cancelled"
+    - "stored"
+    - "loaded"
+    - "started"
+    - "finished"
+    - "completed"
+    - "stopped"
+    - "skipped"
+    - "pending"
+  VbWordTypeEnum:
+    type: "string"
+    enum:
+    - "punc"
+    - "turn"
+    - "dtmf"
+  VbSpeechModelConfiguration:
+    type: "object"
+    properties:
+      language:
+        type: "string"
+        description: "Specifies the language using the ISO-639-1 standard two-letter\
+          \ code followed by a dash and a non-standarized region code."
+        title: "Language and region code."
+      features:
+        type: "array"
+        description: "Allows to turn on additional features of the speech engine"
+        title: "Additional speech features"
+        items:
+          type: "string"
+      extensions:
+        type: "array"
+        description: "This allows to request speech recognition with additional extensions\
+          \ for specific jargon or use cases with the purpose to improve transcription\
+          \ accuracy"
+        title: "A group of speech model extensions"
+        items:
+          type: "string"
+    x-voicebase-configuration: true
+  VbChannelConfiguration:
+    type: "object"
+    properties:
+      speakerName:
+        type: "string"
+        description: "Speaker name on this channel. Defaults to \"SpeakerN\" where\
+          \ N is the channel number."
+        title: "Speaker name."
+      speakerRole:
+        type: "string"
+        description: "A description of the speaker role. Only used as metadata."
+        title: "Speaker role."
+      ignore:
+        type: "boolean"
+        description: "Whether this channel should be ignored for all processing."
+        title: "Ignore the channel"
+    x-voicebase-configuration: true
+  VbTrackConfiguration:
+    type: "object"
+    properties:
+      trackIndex:
+        type: "integer"
+        description: "Track index."
+        title: "Track index."
+      speakerName:
+        type: "string"
+        description: "Speaker name. Defaults to \"Speaker\". If this attribute is\
+          \ specified, all channels are mixed into a single one."
+        title: "Speaker name."
+      speakerRole:
+        type: "string"
+        description: "A description of the speaker role. Only used as metadata."
+      channels:
+        type: "array"
+        description: "List of channels to process, mutually exclusive with \"speakerName\""
+        title: "List of channels"
+        items:
+          $ref: "#/definitions/VbChannelConfiguration"
+    x-voicebase-configuration: true
+  VbStereoConfiguration:
+    type: "object"
+    properties:
+      left:
+        description: "Description of the speaker on the left channel (Channel 0)"
+        title: "Left channel"
+        $ref: "#/definitions/VbChannelConfiguration"
+      right:
+        description: "Description of the speaker on the right channel (Channel 1)"
+        title: "Right channel"
+        $ref: "#/definitions/VbChannelConfiguration"
+    x-voicebase-configuration: true
+  VbIngestConfiguration:
+    type: "object"
+    properties:
+      speakerName:
+        type: "string"
+        description: "Speaker name. Defaults to \"Speaker\". If this attribute is\
+          \ specified, all channels are mixed into a single one."
+        title: "Speaker name."
+      speakerRole:
+        type: "string"
+        description: "A description of the speaker role. Only used as metadata."
+      channels:
+        type: "array"
+        description: "List of channels to process, mutually exclusive with \"tracks\"\
+          , \"stereo\" and \"speakerName\""
+        title: "List of channels"
+        items:
+          $ref: "#/definitions/VbChannelConfiguration"
+      stereo:
+        description: "Indicates to process two channels of the media."
+        title: "Stereo channels description"
+        $ref: "#/definitions/VbStereoConfiguration"
+      tracks:
+        type: "array"
+        description: "List of tracks to process, mutually exclusive with \"channels\"\
+          , \"stereo\" and \"speakerName\""
+        title: "List of tracks"
+        items:
+          $ref: "#/definitions/VbTrackConfiguration"
+    x-voicebase-configuration: true
+  VbParameter:
+    type: "object"
+    properties:
+      parameter:
+        type: "string"
+        description: "Parameter name"
+        title: "Parameter name"
+      value:
+        type: "string"
+        description: "The value for a parameter."
+        title: "Parameter value"
+    x-voicebase-configuration: true
+  VbClassifierConfiguration:
+    type: "object"
+    properties:
+      classifierId:
+        type: "string"
+        description: "Classifier identifier, usually a UUID."
+        title: "Classifier identifier"
+      classifierName:
+        type: "string"
+        description: "A name identifying classifiers offered by Voicebase to all customers"
+        title: "Classifier name"
+      version:
+        type: "string"
+        description: "Provide a specific version (e.g. \"3.1.3\"), specify a minimum\
+          \ (e.g. \"3.1+\") or get the \"latest\". Defaults to \"latest\" if not specified."
+        title: "Classifier version"
+      parameters:
+        type: "array"
+        description: "List of parameter values to the classifier"
+        title: "Parameters for the classifier"
+        items:
+          $ref: "#/definitions/VbParameter"
+    x-voicebase-configuration: true
+  VbTranscriptRedactorConfiguration:
+    type: "object"
+    properties:
+      replacement:
+        type: "string"
+        description: "Sequence of characters to replace words within a transcript\
+          \ when reported by a detector"
+        title: "The replacement string"
+    x-voicebase-configuration: true
+  VbAudioRedactorConfiguration:
+    type: "object"
+    properties:
+      tone:
+        type: "integer"
+        title: "Tone (frequency) to replace words with"
+      gain:
+        type: "number"
+        format: "float"
+        title: "Gain in volume"
+    description: "Sound attributes to replace spoken words in the audio when reported\
+      \ by a detector"
+    x-voicebase-configuration: true
+  VbRedactorConfiguration:
+    type: "object"
+    properties:
+      transcript:
+        title: "Definition on how to redact the transcripts"
+        $ref: "#/definitions/VbTranscriptRedactorConfiguration"
+      audio:
+        title: "Definition on how to redact the audio"
+        $ref: "#/definitions/VbAudioRedactorConfiguration"
+    x-voicebase-configuration: true
+  VbDetectorConfiguration:
+    type: "object"
+    properties:
+      detectorId:
+        type: "string"
+        description: "Detector identifier, a UUID"
+        title: "Detector identifier"
+      detectorName:
+        type: "string"
+        description: "A name identifying a detector offered by Voicebase to all customers"
+        title: "Detector name"
+      version:
+        type: "string"
+        description: "Provide a specific version (e.g. \"3.1.3\"), specify a minimum\
+          \ (e.g. \"3.1+\") or get the \"latest\". Defaults to \"latest\" if not specified."
+        title: "Detector version"
+      parameters:
+        type: "array"
+        description: "List of parameter values to the detector"
+        title: "Parameters for the detector"
+        items:
+          $ref: "#/definitions/VbParameter"
+      redactor:
+        $ref: "#/definitions/VbRedactorConfiguration"
+    x-voicebase-configuration: true
+  VbPredictionConfiguration:
+    type: "object"
+    properties:
+      classifiers:
+        type: "array"
+        title: "List of classifiers to run the media through"
+        items:
+          $ref: "#/definitions/VbClassifierConfiguration"
+      detectors:
+        type: "array"
+        title: "List of detectors to run the media through"
+        items:
+          $ref: "#/definitions/VbDetectorConfiguration"
+    title: "Predictors Section"
+    x-voicebase-configuration: true
+  VbSpottingGroupConfiguration:
+    type: "object"
+    properties:
+      groupName:
+        type: "string"
+        description: "Name of a pre-defined keyword spotting group"
+    title: "Keyword Spotting group"
+    x-voicebase-configuration: true
+  VbSpottingConfiguration:
+    type: "object"
+    properties:
+      groups:
+        type: "array"
+        description: "List of keyword spotting groups"
+        uniqueItems: true
+        items:
+          $ref: "#/definitions/VbSpottingGroupConfiguration"
+        maxItems: 100
+    title: "Keyword Spotting Section"
+    x-voicebase-configuration: true
+  VbKnowledgeConfiguration:
+    type: "object"
+    properties:
+      enableDiscovery:
+        type: "boolean"
+        description: "Whether knowledge discovery is enabled or not"
+        title: "Enable knowledge discovery"
+        default: false
+      enableExternalDataSources:
+        type: "boolean"
+        description: "Whether semantic discovery is allowed to use external data sources\
+          \ or not"
+        default: true
+    title: "Knowledge Discovery Section"
+    x-voicebase-configuration: true
+  VbFormattingConfiguration:
+    type: "object"
+    properties:
+      enableNumberFormatting:
+        type: "boolean"
+        description: "Whether number formatting is enabled or not"
+        default: true
+    x-voicebase-configuration: true
+  VbContentFilteringConfiguration:
+    type: "object"
+    properties:
+      enableProfanityFiltering:
+        type: "boolean"
+        description: "Whether swear word filtering is enabled or not"
+        default: true
+    x-voicebase-configuration: true
+  VbTranscriptConfiguration:
+    type: "object"
+    properties:
+      formatting:
+        $ref: "#/definitions/VbFormattingConfiguration"
+      contentFiltering:
+        $ref: "#/definitions/VbContentFilteringConfiguration"
+    x-voicebase-configuration: true
+  VbVocabularyScriptConfiguration:
+    type: "object"
+    properties:
+      script:
+        type: "string"
+        title: "Words of the script"
+    x-voicebase-configuration: true
+  VbVocabularyTermConfiguration:
+    type: "object"
+    properties:
+      term:
+        type: "string"
+        title: "Word to identify in the audio"
+      soundsLike:
+        type: "array"
+        title: "A list of spellings on how the term sounds like"
+        items:
+          type: "string"
+      weight:
+        type: "integer"
+    x-voicebase-configuration: true
+  VbVocabularyConfiguration:
+    type: "object"
+    properties:
+      vocabularyName:
+        type: "string"
+        title: "Vocabulary name"
+      terms:
+        type: "array"
+        title: "Terms defining the vocabulary"
+        items:
+          $ref: "#/definitions/VbVocabularyTermConfiguration"
+      scripts:
+        type: "array"
+        title: "Scripts defining the vocabulary"
+        items:
+          $ref: "#/definitions/VbVocabularyScriptConfiguration"
+    x-voicebase-configuration: true
+  VbCallbackConfiguration:
+    type: "object"
+    properties:
+      url:
+        type: "string"
+      method:
+        title: "HTTP Method to use for the callback"
+        $ref: "#/definitions/VbHttpMethodEnum"
+      type:
+        title: "Type of results to callback with"
+        $ref: "#/definitions/VbCallbackTypeEnum"
+      include:
+        type: "array"
+        title: "List of sections to include when requesting a callback with type 'analytics'"
+        items:
+          $ref: "#/definitions/VbIncludeTypeEnum"
+      stream:
+        title: "Media stream name"
+        $ref: "#/definitions/VbCallbackStreamEnum"
+      format:
+        title: "Format for the transcript or stream"
+        $ref: "#/definitions/VbCallbackFormatEnum"
+    x-voicebase-configuration: true
+  VbPublishConfiguration:
+    type: "object"
+    properties:
+      callbacks:
+        type: "array"
+        title: "List of URLs to report the results to"
+        items:
+          $ref: "#/definitions/VbCallbackConfiguration"
+    x-voicebase-configuration: true
+  VbConfiguration:
+    type: "object"
+    properties:
+      speechModel:
+        $ref: "#/definitions/VbSpeechModelConfiguration"
+      additionalSpeechModels:
+        type: "array"
+        description: "Allows to specify other languages to enable recognition when\
+          \ conversations occur in multiple languages"
+        title: "Secondary languages"
+        items:
+          $ref: "#/definitions/VbSpeechModelConfiguration"
+      priority:
+        $ref: "#/definitions/VbPriorityEnum"
+      ingest:
+        $ref: "#/definitions/VbIngestConfiguration"
+      prediction:
+        $ref: "#/definitions/VbPredictionConfiguration"
+      spotting:
+        $ref: "#/definitions/VbSpottingConfiguration"
+      knowledge:
+        $ref: "#/definitions/VbKnowledgeConfiguration"
+      transcript:
+        $ref: "#/definitions/VbTranscriptConfiguration"
+      vocabularies:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbVocabularyConfiguration"
+      publish:
+        $ref: "#/definitions/VbPublishConfiguration"
+    x-voicebase-configuration: true
+  VbError:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      error:
+        type: "string"
+  VbMessage:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+  VbErrorResponse:
+    type: "object"
+    properties:
+      status:
+        type: "integer"
+        format: "int32"
+        description: "Status Code"
+      errors:
+        type: "array"
+        description: "The errors"
+        items:
+          $ref: "#/definitions/VbError"
+      warnings:
+        type: "array"
+        description: "The warnings"
+        items:
+          $ref: "#/definitions/VbMessage"
+      reference:
+        type: "string"
+        description: "ref."
+    x-voicebase-extension: true
+  VbKeywordGroup:
+    type: "object"
+    properties:
+      groupName:
+        type: "string"
+      keywords:
+        type: "array"
+        items:
+          type: "string"
+    example:
+      groupName: "groupName"
+      keywords:
+      - "keywords"
+      - "keywords"
+    x-voicebase-extension: true
+  VbKeywordGroupsResponse:
+    type: "object"
+    properties:
+      groups:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbKeywordGroup"
+    example:
+      groups:
+      - groupName: "groupName"
+        keywords:
+        - "keywords"
+        - "keywords"
+      - groupName: "groupName"
+        keywords:
+        - "keywords"
+        - "keywords"
+    x-voicebase-extension: true
+  VbMetadata:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+      description:
+        type: "string"
+      externalId:
+        type: "string"
+      extended:
+        type: "object"
+        additionalProperties:
+          type: "object"
+          properties: {}
+    example:
+      description: "description"
+      externalId: "externalId"
+      title: "title"
+      extended:
+        key: "{}"
+    x-voicebase-extension: true
+  VbMediaSummary:
+    type: "object"
+    properties:
+      formatVersion:
+        type: "string"
+        description: "Media format version. E.g. 3.0.1"
+      mediaId:
+        type: "string"
+        description: "Media unique identifier."
+      status:
+        description: "Processing state."
+        $ref: "#/definitions/VbStatusEnum"
+      dateCreated:
+        type: "string"
+        format: "date-time"
+        description: "Creation timestamp"
+      metadata:
+        description: "User defined data associated with this record."
+        $ref: "#/definitions/VbMetadata"
+    example:
+      metadata:
+        description: "description"
+        externalId: "externalId"
+        title: "title"
+        extended:
+          key: "{}"
+      dateCreated: "2000-01-23T04:56:07.000+00:00"
+      mediaId: "mediaId"
+      formatVersion: "formatVersion"
+      status: {}
+  VbMediaQueryResponse:
+    type: "object"
+    properties:
+      media:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbMediaSummary"
+    example:
+      media:
+      - metadata:
+          description: "description"
+          externalId: "externalId"
+          title: "title"
+          extended:
+            key: "{}"
+        dateCreated: "2000-01-23T04:56:07.000+00:00"
+        mediaId: "mediaId"
+        formatVersion: "formatVersion"
+        status: {}
+      - metadata:
+          description: "description"
+          externalId: "externalId"
+          title: "title"
+          extended:
+            key: "{}"
+        dateCreated: "2000-01-23T04:56:07.000+00:00"
+        mediaId: "mediaId"
+        formatVersion: "formatVersion"
+        status: {}
+    x-voicebase-extension: true
+  VbProgressTask:
+    type: "object"
+    properties:
+      taskId:
+        type: "string"
+      display:
+        type: "string"
+      phase:
+        type: "string"
+      status:
+        $ref: "#/definitions/VbTaskStatusEnum"
+      dependencies:
+        type: "array"
+        items:
+          type: "string"
+      dependents:
+        type: "array"
+        items:
+          type: "string"
+    example:
+      phase: "phase"
+      display: "display"
+      dependents:
+      - "dependents"
+      - "dependents"
+      taskId: "taskId"
+      status: null
+      dependencies:
+      - "dependencies"
+      - "dependencies"
+  VbProgress:
+    type: "object"
+    properties:
+      finish:
+        type: "string"
+      jobId:
+        type: "string"
+      start:
+        type: "string"
+      status:
+        $ref: "#/definitions/VbTaskStatusEnum"
+      tasks:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbProgressTask"
+    example:
+      jobId: "jobId"
+      start: "start"
+      finish: "finish"
+      tasks:
+      - phase: "phase"
+        display: "display"
+        dependents:
+        - "dependents"
+        - "dependents"
+        taskId: "taskId"
+        status: null
+        dependencies:
+        - "dependencies"
+        - "dependencies"
+      - phase: "phase"
+        display: "display"
+        dependents:
+        - "dependents"
+        - "dependents"
+        taskId: "taskId"
+        status: null
+        dependencies:
+        - "dependencies"
+        - "dependencies"
+      status: {}
+  VbJob:
+    type: "object"
+    properties:
+      mediaId:
+        type: "string"
+      jobId:
+        type: "string"
+      progress:
+        $ref: "#/definitions/VbProgress"
+    example:
+      jobId: "jobId"
+      progress:
+        jobId: "jobId"
+        start: "start"
+        finish: "finish"
+        tasks:
+        - phase: "phase"
+          display: "display"
+          dependents:
+          - "dependents"
+          - "dependents"
+          taskId: "taskId"
+          status: null
+          dependencies:
+          - "dependencies"
+          - "dependencies"
+        - phase: "phase"
+          display: "display"
+          dependents:
+          - "dependents"
+          - "dependents"
+          taskId: "taskId"
+          status: null
+          dependencies:
+          - "dependencies"
+          - "dependencies"
+        status: {}
+      mediaId: "mediaId"
+  VbKeyword:
+    type: "object"
+    properties:
+      keyword:
+        type: "string"
+      relevance:
+        type: "number"
+        format: "double"
+      mentions:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbMention"
+  VbReference:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      score:
+        type: "number"
+        format: "double"
+  VbTopic:
+    type: "object"
+    properties:
+      topicName:
+        type: "string"
+      relevance:
+        type: "number"
+        format: "double"
+      subTopics:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbReference"
+      keywords:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbKeyword"
+  VbGroup:
+    type: "object"
+    properties:
+      groupName:
+        type: "string"
+      spotted:
+        type: "boolean"
+      score:
+        type: "number"
+        format: "double"
+      spottedKeywords:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbKeyword"
+  VbKnowledge:
+    type: "object"
+    properties:
+      keywords:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbKeyword"
+      topics:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbTopic"
+  VbSpotting:
+    type: "object"
+    properties:
+      groups:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbGroup"
+  VbClassifier:
+    type: "object"
+    properties:
+      classifierId:
+        type: "string"
+      classifierName:
+        type: "string"
+      classifierDisplayName:
+        type: "string"
+      classifierType:
+        type: "string"
+      predictedClassLabel:
+        type: "string"
+      predictionScore:
+        type: "number"
+        format: "double"
+      predictedClass:
+        type: "integer"
+        format: "int32"
+  VbDetector:
+    type: "object"
+    properties:
+      detectorId:
+        type: "string"
+      detectorName:
+        type: "string"
+      detectorDisplayName:
+        type: "string"
+      detectorType:
+        type: "string"
+      detections:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbDetection"
+  VbDetection:
+    type: "object"
+    properties:
+      detectorClass:
+        type: "integer"
+        format: "int32"
+      detectorClassLabel:
+        type: "string"
+      detectedSegments:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbDetectedSegment"
+  VbDetectedSegment:
+    type: "object"
+    properties:
+      speakerName:
+        type: "string"
+      occurrences:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbOccurrence"
+  VbOccurrence:
+    type: "object"
+    properties:
+      s:
+        type: "integer"
+        format: "int64"
+      e:
+        type: "integer"
+        format: "int64"
+      exact:
+        type: "string"
+  VbMention:
+    type: "object"
+    properties:
+      speakerName:
+        type: "string"
+      occurrences:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbOccurrence"
+  VbPrediction:
+    type: "object"
+    properties:
+      classifiers:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbClassifier"
+      detectors:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbDetector"
+  VbDiarization:
+    type: "object"
+    properties:
+      band:
+        type: "string"
+      env:
+        type: "string"
+      gender:
+        type: "string"
+      length:
+        type: "integer"
+        format: "int64"
+      speakerLabel:
+        type: "string"
+      start:
+        type: "integer"
+        format: "int64"
+  VbFrequency:
+    type: "object"
+    properties:
+      e:
+        type: "number"
+        format: "double"
+      f:
+        type: "number"
+        format: "double"
+    example:
+      e: 2.3021358869347655
+      f: 7.061401241503109
+  VbWord:
+    type: "object"
+    properties:
+      p:
+        type: "integer"
+        format: "int32"
+      c:
+        type: "number"
+        format: "double"
+      s:
+        type: "integer"
+        format: "int64"
+      e:
+        type: "integer"
+        format: "int64"
+      frq:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbFrequency"
+      m:
+        $ref: "#/definitions/VbWordTypeEnum"
+      v:
+        type: "number"
+        format: "double"
+      w:
+        type: "string"
+    example:
+      p: 6
+      c: 1.4658129805029452
+      s: 5
+      frq:
+      - e: 2.3021358869347655
+        f: 7.061401241503109
+      - e: 2.3021358869347655
+        f: 7.061401241503109
+      e: 5
+      v: 9.301444243932576
+      w: "w"
+      m: {}
+  VbTranscript:
+    type: "object"
+    properties:
+      confidence:
+        type: "number"
+        format: "double"
+      words:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbWord"
+      alternateFormats:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbTranscriptFormat"
+    example:
+      confidence: 0.8008281904610115
+      words:
+      - p: 6
+        c: 1.4658129805029452
+        s: 5
+        frq:
+        - e: 2.3021358869347655
+          f: 7.061401241503109
+        - e: 2.3021358869347655
+          f: 7.061401241503109
+        e: 5
+        v: 9.301444243932576
+        w: "w"
+        m: {}
+      - p: 6
+        c: 1.4658129805029452
+        s: 5
+        frq:
+        - e: 2.3021358869347655
+          f: 7.061401241503109
+        - e: 2.3021358869347655
+          f: 7.061401241503109
+        e: 5
+        v: 9.301444243932576
+        w: "w"
+        m: {}
+      alternateFormats:
+      - charset: "charset"
+        data: "data"
+        format: "format"
+        contentEncoding: "contentEncoding"
+        contentType: "contentType"
+      - charset: "charset"
+        data: "data"
+        format: "format"
+        contentEncoding: "contentEncoding"
+        contentType: "contentType"
+    x-voicebase-extension: true
+  VbTranscriptFormat:
+    type: "object"
+    properties:
+      format:
+        type: "string"
+      contentType:
+        type: "string"
+      contentEncoding:
+        type: "string"
+      charset:
+        type: "string"
+      data:
+        type: "string"
+    example:
+      charset: "charset"
+      data: "data"
+      format: "format"
+      contentEncoding: "contentEncoding"
+      contentType: "contentType"
+  VbMedia:
+    allOf:
+    - $ref: "#/definitions/VbMediaSummary"
+    - type: "object"
+      properties:
+        mediaContentType:
+          type: "string"
+          description: "The MIME type of the media submitted for processing. E.g.\
+            \ audio/x-wav, audio/mpeg"
+        length:
+          type: "integer"
+          format: "int64"
+          description: "Duration of the audio/video submitted for processing expressed\
+            \ in milliseconds"
+        knowledge:
+          description: "Semantic knowledge discovery section. If knoweledge discovery\
+            \ was requested, this section contains the results."
+          $ref: "#/definitions/VbKnowledge"
+        spotting:
+          description: "If kewyword spotting was requested, this section contains\
+            \ the results."
+          $ref: "#/definitions/VbSpotting"
+        prediction:
+          description: "If any predictions (classifiers, detectors) were requested,\
+            \ this section contains the results."
+          $ref: "#/definitions/VbPrediction"
+        transcript:
+          description: "This section contains the transcript in a variety of formats"
+          $ref: "#/definitions/VbTranscript"
+        warnings:
+          type: "array"
+          description: "This section contains warnings about the media"
+          items:
+            $ref: "#/definitions/VbMessage"
+        streams:
+          type: "array"
+          description: "Theaudio/video streams available."
+          items:
+            $ref: "#/definitions/VbStream"
+        _job:
+          $ref: "#/definitions/VbJob"
+    x-voicebase-extension: true
+  VbStream:
+    type: "object"
+    properties:
+      status:
+        type: "integer"
+        format: "int32"
+      streamName:
+        type: "string"
+      streamLocation:
+        type: "string"
+      comment:
+        type: "string"
+    example:
+      streamLocation: "streamLocation"
+      comment: "comment"
+      streamName: "streamName"
+      status: 0
+    x-voicebase-extension: true
+  VbStreams:
+    type: "object"
+    properties:
+      streams:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbStream"
+    example:
+      streams:
+      - streamLocation: "streamLocation"
+        comment: "comment"
+        streamName: "streamName"
+        status: 0
+      - streamLocation: "streamLocation"
+        comment: "comment"
+        streamName: "streamName"
+        status: 0
+    x-voicebase-extension: true
+  VbClass:
+    type: "object"
+    properties:
+      classLabel:
+        type: "string"
+      classValue:
+        type: "integer"
+        format: "int32"
+    example:
+      classLabel: "classLabel"
+      classValue: 0
+    x-voicebase-extension: true
+  VbParameterDefinition:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+        title: "Parameter name"
+      optional:
+        type: "boolean"
+        description: "whether the parameter is optional or not"
+        title: "Optional"
+      type:
+        type: "string"
+        description: "Parameter type, one of ( \"String\", \"Integer\", \"Float\"\
+          , \"Boolean\" )"
+        title: "Parameter type."
+      valueSet:
+        type: "array"
+        description: "List of possible values for this parameter, only provided if\
+          \ there is a finite number of values accepted."
+        title: "List of possible values for this parameter."
+        items:
+          type: "string"
+      defaultValue:
+        type: "string"
+        title: "Default value. The value that would be assumed if not provided."
+    example:
+      valueSet:
+      - "valueSet"
+      - "valueSet"
+      defaultValue: "defaultValue"
+      name: "name"
+      optional: true
+      type: "type"
+    x-voicebase-extension: true
+  VbClassifierModel:
+    type: "object"
+    properties:
+      classifierId:
+        type: "string"
+        title: "Classifier identifier."
+      classifierName:
+        type: "string"
+        description: "Use this name for referring to the classifier in a configuration\
+          \ provided with the media for processing"
+        title: "Classifier name"
+      classifierVersion:
+        type: "string"
+        description: "Use this version in conjuction with the classifier name for\
+          \ referring to this classifier in a configuration provided with the media\
+          \ for processing"
+        title: "Classifier version"
+      classifierDescription:
+        type: "string"
+        title: "Classifier description. Describes the function of this classifier\
+          \ and its restrictions."
+      classifierType:
+        type: "string"
+        title: "Classifier type. One of ('binary', 'multiclass')"
+      classes:
+        type: "array"
+        description: "Set of possible classes identified by the classifier"
+        title: "Classes"
+        items:
+          $ref: "#/definitions/VbClass"
+      parameters:
+        type: "array"
+        description: "Set of possible parameters for this classifier"
+        title: "Parameters"
+        items:
+          $ref: "#/definitions/VbParameterDefinition"
+    example:
+      classifierDescription: "classifierDescription"
+      classifierId: "classifierId"
+      classes:
+      - classLabel: "classLabel"
+        classValue: 0
+      - classLabel: "classLabel"
+        classValue: 0
+      classifierVersion: "classifierVersion"
+      parameters:
+      - valueSet:
+        - "valueSet"
+        - "valueSet"
+        defaultValue: "defaultValue"
+        name: "name"
+        optional: true
+        type: "type"
+      - valueSet:
+        - "valueSet"
+        - "valueSet"
+        defaultValue: "defaultValue"
+        name: "name"
+        optional: true
+        type: "type"
+      classifierName: "classifierName"
+      classifierType: "classifierType"
+    x-voicebase-extension: true
+  VbClassifierModelsResponse:
+    type: "object"
+    properties:
+      classifiers:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbClassifierModel"
+    example:
+      classifiers:
+      - classifierDescription: "classifierDescription"
+        classifierId: "classifierId"
+        classes:
+        - classLabel: "classLabel"
+          classValue: 0
+        - classLabel: "classLabel"
+          classValue: 0
+        classifierVersion: "classifierVersion"
+        parameters:
+        - valueSet:
+          - "valueSet"
+          - "valueSet"
+          defaultValue: "defaultValue"
+          name: "name"
+          optional: true
+          type: "type"
+        - valueSet:
+          - "valueSet"
+          - "valueSet"
+          defaultValue: "defaultValue"
+          name: "name"
+          optional: true
+          type: "type"
+        classifierName: "classifierName"
+        classifierType: "classifierType"
+      - classifierDescription: "classifierDescription"
+        classifierId: "classifierId"
+        classes:
+        - classLabel: "classLabel"
+          classValue: 0
+        - classLabel: "classLabel"
+          classValue: 0
+        classifierVersion: "classifierVersion"
+        parameters:
+        - valueSet:
+          - "valueSet"
+          - "valueSet"
+          defaultValue: "defaultValue"
+          name: "name"
+          optional: true
+          type: "type"
+        - valueSet:
+          - "valueSet"
+          - "valueSet"
+          defaultValue: "defaultValue"
+          name: "name"
+          optional: true
+          type: "type"
+        classifierName: "classifierName"
+        classifierType: "classifierType"
+    x-voicebase-extension: true
+  VbDetectorModel:
+    type: "object"
+    properties:
+      detectorId:
+        type: "string"
+        title: "Detector identifier."
+      detectorName:
+        type: "string"
+        description: "Use this detector name when refering to this detector in a configuration\
+          \ for media processing"
+        title: "Detector name."
+      detectorVersion:
+        type: "string"
+        description: "Use this version in conjuction with the detector name for referring\
+          \ to this detector in a configuration provided with the media for processing"
+        title: "Detector version"
+      detectorDescription:
+        type: "string"
+        description: "Describes the function of this detector and its restrictions"
+        title: "Detector description"
+      detectorType:
+        type: "string"
+        description: "Detector type, one of ( 'binary', 'multiclass').  Binary detectors\
+          \ only report positive cases."
+        title: "Detector type"
+      classes:
+        type: "array"
+        description: "Set of possible classes for segments identified by this detector"
+        title: "Classes"
+        items:
+          $ref: "#/definitions/VbClass"
+      parameters:
+        type: "array"
+        description: "Set of possible parameters for this detector"
+        title: "Parameters"
+        items:
+          $ref: "#/definitions/VbParameterDefinition"
+    example:
+      detectorVersion: "detectorVersion"
+      detectorName: "detectorName"
+      detectorDescription: "detectorDescription"
+      detectorId: "detectorId"
+      detectorType: "detectorType"
+      classes:
+      - classLabel: "classLabel"
+        classValue: 0
+      - classLabel: "classLabel"
+        classValue: 0
+      parameters:
+      - valueSet:
+        - "valueSet"
+        - "valueSet"
+        defaultValue: "defaultValue"
+        name: "name"
+        optional: true
+        type: "type"
+      - valueSet:
+        - "valueSet"
+        - "valueSet"
+        defaultValue: "defaultValue"
+        name: "name"
+        optional: true
+        type: "type"
+    x-voicebase-extension: true
+  VbDetectorModelsResponse:
+    type: "object"
+    properties:
+      detectors:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbDetectorModel"
+    example:
+      detectors:
+      - detectorVersion: "detectorVersion"
+        detectorName: "detectorName"
+        detectorDescription: "detectorDescription"
+        detectorId: "detectorId"
+        detectorType: "detectorType"
+        classes:
+        - classLabel: "classLabel"
+          classValue: 0
+        - classLabel: "classLabel"
+          classValue: 0
+        parameters:
+        - valueSet:
+          - "valueSet"
+          - "valueSet"
+          defaultValue: "defaultValue"
+          name: "name"
+          optional: true
+          type: "type"
+        - valueSet:
+          - "valueSet"
+          - "valueSet"
+          defaultValue: "defaultValue"
+          name: "name"
+          optional: true
+          type: "type"
+      - detectorVersion: "detectorVersion"
+        detectorName: "detectorName"
+        detectorDescription: "detectorDescription"
+        detectorId: "detectorId"
+        detectorType: "detectorType"
+        classes:
+        - classLabel: "classLabel"
+          classValue: 0
+        - classLabel: "classLabel"
+          classValue: 0
+        parameters:
+        - valueSet:
+          - "valueSet"
+          - "valueSet"
+          defaultValue: "defaultValue"
+          name: "name"
+          optional: true
+          type: "type"
+        - valueSet:
+          - "valueSet"
+          - "valueSet"
+          defaultValue: "defaultValue"
+          name: "name"
+          optional: true
+          type: "type"
+    x-voicebase-extension: true
+  VbKey:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      bearerToken:
+        type: "string"
+      lastSix:
+        type: "string"
+      issued:
+        type: "string"
+        format: "date-time"
+      expirationDate:
+        type: "string"
+        format: "date-time"
+      expired:
+        type: "boolean"
+      scope:
+        type: "string"
+    example:
+      bearerToken: "bearerToken"
+      expired: true
+      scope: "scope"
+      id: "id"
+      issued: "2000-01-23T04:56:07.000+00:00"
+      lastSix: "lastSix"
+      expirationDate: "2000-01-23T04:56:07.000+00:00"
+    x-voicebase-extension: true
+  VbKeysResponse:
+    type: "object"
+    properties:
+      keys:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbKey"
+    example:
+      keys:
+      - bearerToken: "bearerToken"
+        expired: true
+        scope: "scope"
+        id: "id"
+        issued: "2000-01-23T04:56:07.000+00:00"
+        lastSix: "lastSix"
+        expirationDate: "2000-01-23T04:56:07.000+00:00"
+      - bearerToken: "bearerToken"
+        expired: true
+        scope: "scope"
+        id: "id"
+        issued: "2000-01-23T04:56:07.000+00:00"
+        lastSix: "lastSix"
+        expirationDate: "2000-01-23T04:56:07.000+00:00"
+    x-voicebase-extension: true
+  VbKeyConfiguration:
+    type: "object"
+    properties:
+      ttlMillis:
+        type: "integer"
+        format: "int64"
+        description: "Number of milliseconds that the key must be valid for"
+        title: "Time-to-live period"
+      expirationDate:
+        type: "string"
+        format: "date-time"
+        description: "Expiration date expressed in ISO-8601 format"
+        title: "Expiration date"
+      ephemeral:
+        type: "boolean"
+      scope:
+        type: "string"
+        description: "Restriction of the scope of the token in the form of media:get?extendedFilter=speakers:agent"
+        title: "Token scope."
+    example:
+      scope: "scope"
+      ttlMillis: 0
+      ephemeral: true
+      expirationDate: "2000-01-23T04:56:07.000+00:00"
+    x-voicebase-extension: true
+  VbSearchableFields:
+    type: "object"
+    properties:
+      fields:
+        type: "array"
+        items:
+          type: "string"
+    example:
+      fields:
+      - "fields"
+      - "fields"
+    x-voicebase-extension: true
+  VbVocabularyType:
+    type: "string"
+    enum:
+    - "scripts"
+    - "terms"
+  VbVocabulary:
+    type: "object"
+    properties:
+      vocabularyName:
+        type: "string"
+      vocabularyType:
+        $ref: "#/definitions/VbVocabularyType"
+      terms:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbVocabularyTerm"
+      scripts:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbVocabularyScript"
+    example:
+      terms:
+      - soundsLike:
+        - "soundsLike"
+        - "soundsLike"
+        weight: 0
+        term: "term"
+      - soundsLike:
+        - "soundsLike"
+        - "soundsLike"
+        weight: 0
+        term: "term"
+      vocabularyName: "vocabularyName"
+      scripts:
+      - script: "script"
+      - script: "script"
+      vocabularyType: {}
+    x-voicebase-extension: true
+  VbVocabularyTerm:
+    type: "object"
+    properties:
+      term:
+        type: "string"
+      soundsLike:
+        type: "array"
+        items:
+          type: "string"
+      weight:
+        type: "integer"
+    example:
+      soundsLike:
+      - "soundsLike"
+      - "soundsLike"
+      weight: 0
+      term: "term"
+    x-voicebase-extension: true
+  VbVocabularyScript:
+    type: "object"
+    properties:
+      script:
+        type: "string"
+    example:
+      script: "script"
+    x-voicebase-extension: true
+  VbVocabulariesResponse:
+    type: "object"
+    properties:
+      vocabularies:
+        type: "array"
+        items:
+          $ref: "#/definitions/VbVocabulary"
+    example:
+      vocabularies:
+      - terms:
+        - soundsLike:
+          - "soundsLike"
+          - "soundsLike"
+          weight: 0
+          term: "term"
+        - soundsLike:
+          - "soundsLike"
+          - "soundsLike"
+          weight: 0
+          term: "term"
+        vocabularyName: "vocabularyName"
+        scripts:
+        - script: "script"
+        - script: "script"
+        vocabularyType: {}
+      - terms:
+        - soundsLike:
+          - "soundsLike"
+          - "soundsLike"
+          weight: 0
+          term: "term"
+        - soundsLike:
+          - "soundsLike"
+          - "soundsLike"
+          weight: 0
+          term: "term"
+        vocabularyName: "vocabularyName"
+        scripts:
+        - script: "script"
+        - script: "script"
+        vocabularyType: {}
+    x-voicebase-extension: true

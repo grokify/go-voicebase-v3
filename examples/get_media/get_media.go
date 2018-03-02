@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/grokify/go-voicebase-v3"
+	"github.com/grokify/go-voicebase-v3/client"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	"github.com/grokify/oauth2more"
 	"github.com/joho/godotenv"
