@@ -6,51 +6,9 @@ import (
 	"os"
 
 	"github.com/grokify/go-voicebase-v3"
-	"github.com/grokify/go-voicebase-v3/client"
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 )
-
-func BuildVocabulary(id string) voicebase.VbVocabulary {
-	vb := voicebase.VbVocabulary{
-		VocabularyName: id,
-		VocabularyType: voicebase.TERMS,
-		Terms: []voicebase.VbVocabularyTerm{
-			{
-				Term: "Embbnux",
-				SoundsLike: []string{
-					"emnux", "emnucks", "emnuks",
-				},
-			},
-		},
-	}
-	return vb
-}
-
-/*
-{
-    "vocabularies": [
-        {
-            "vocabularyName": "rc-vocab",
-            "vocabularyType": "terms",
-            "terms": [
-                {
-                    "term": "Embbnux",
-                    "soundsLike": [
-                        "emnux",
-                        "emnuks"
-                    ]
-                }
-            ]
-        }
-    ],
-    "_links": {
-        "self": {
-            "href": "https://apis.voicebase.com/v3/definition/vocabularies"
-        }
-    }
-}
-*/
 
 func main() {
 	err := config.LoadDotEnvSkipEmpty(os.Getenv("ENV_PATH"), "./.env")
@@ -60,11 +18,14 @@ func main() {
 
 	apiClient := clientutil.NewApiClientToken(os.Getenv("VOICEBASE_BEARER_TOKEN"))
 
-	id := "embbnux"
+	v := clientutil.Vocabulary{
+		VocabularyName: "mpthree",
+		Term:           "MP3",
+		SoundsLike:     []string{"em pee three", "empee three", "m p three", "em p three"},
+	}
 
 	info, resp, err := apiClient.DefinitionApi.CreateVocabulary(
-		context.Background(),
-		id, BuildVocabulary(id),
+		context.Background(), v.VocabularyName, v.ToVbVocabulary(),
 	)
 	if err != nil {
 		panic(err)

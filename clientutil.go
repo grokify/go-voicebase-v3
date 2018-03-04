@@ -5,6 +5,10 @@ import (
 	"github.com/grokify/oauth2more"
 )
 
+const (
+	ApiUrlV3Media = "https://apis.voicebase.com/v3/media"
+)
+
 func NewApiClientToken(token string) *voicebase.APIClient {
 	apiConfig := voicebase.NewConfiguration()
 	apiConfig.HTTPClient = oauth2more.NewClientAccessToken(token)

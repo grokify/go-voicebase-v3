@@ -26,3 +26,4 @@ _testmain.go
 # Manual
 .env
 *.jar
+_*

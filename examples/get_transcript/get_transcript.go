@@ -6,14 +6,24 @@ import (
 	"os"
 
 	"github.com/grokify/go-voicebase-v3"
+	"github.com/grokify/go-voicebase-v3/client"
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
+	"github.com/grokify/gotilla/strings/stringsutil"
 )
 
 const (
 	EnvAccessToken = "VOICEBASE_BEARER_TOKEN"
 	EnvMediaId     = "VOICEBASE_TRANSCRIPT_MEDIA_ID"
 )
+
+func TranscriptToSentence(vbt voicebase.VbTranscript) string {
+	parts := []string{}
+	for _, word := range vbt.Words {
+		parts = append(parts, word.W)
+	}
+	return stringsutil.JoinTrimSpace(parts)
+}
 
 func main() {
 	err := config.LoadDotEnvSkipEmpty(os.Getenv("ENV_PATH"), "./.env")
@@ -33,6 +43,8 @@ func main() {
 	}
 
 	fmtutil.PrintJSON(vbt)
+
+	fmt.Println(TranscriptToSentence(vbt))
 
 	fmt.Println("DONE")
 }
