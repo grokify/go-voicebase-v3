@@ -4,9 +4,10 @@ import (
 	"net/http"
 	"time"
 
-	voicebase "github.com/grokify/go-voicebase-v3/client"
 	"github.com/grokify/mogo/encoding/jsonutil"
 	"github.com/grokify/mogo/mime/multipartutil"
+
+	voicebase "github.com/grokify/go-voicebase-v3/v3/client"
 )
 
 func UploadMedia(client *http.Client, filepath string, cfg UploadMediaConfiguration, verbose bool) (*UploadMediaResponse, *http.Response, error) {

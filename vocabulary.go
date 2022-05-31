@@ -3,7 +3,7 @@ package clientutil
 import (
 	"strings"
 
-	"github.com/grokify/go-voicebase-v3/client"
+	voicebase "github.com/grokify/go-voicebase-v3/v3/client"
 )
 
 // BuildVocabulariesForStrings takes a list of strings and converts them

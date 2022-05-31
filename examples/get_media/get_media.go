@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	clientutil "github.com/grokify/go-voicebase-v3"
 	"github.com/grokify/mogo/config"
 	"github.com/grokify/mogo/fmt/fmtutil"
+
+	clientutil "github.com/grokify/go-voicebase-v3/v3"
 )
 
 func main() {

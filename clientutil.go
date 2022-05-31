@@ -1,8 +1,9 @@
 package clientutil
 
 import (
-	voicebase "github.com/grokify/go-voicebase-v3/client"
 	"github.com/grokify/goauth"
+
+	voicebase "github.com/grokify/go-voicebase-v3/v3/client"
 )
 
 const (

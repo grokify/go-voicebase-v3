@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	clientutil "github.com/grokify/go-voicebase-v3"
 	"github.com/grokify/goauth"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/joho/godotenv"
+
+	clientutil "github.com/grokify/go-voicebase-v3/v3"
 )
 
 const (
