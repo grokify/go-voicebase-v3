@@ -184,6 +184,6 @@ https://stackoverflow.com/
  [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-voicebase-v3
  [goreport-url]: https://goreportcard.com/report/github.com/grokify/go-voicebase-v3
  [docs-godoc-svg]: https://img.shields.io/badge/docs-godoc-blue.svg
- [docs-godoc-url]: https://godoc.org/github.com/grokify/go-voicebase-v3
+ [docs-godoc-url]: https://pkg.go.dev/github.com/grokify/go-voicebase-v3
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
  [license-url]: https://github.com/grokify/go-voicebase-v3/blob/master/LICENSE
