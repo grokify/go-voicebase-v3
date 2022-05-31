@@ -4,15 +4,15 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/grokify/go-voicebase-v3/client"
-	"github.com/grokify/gotilla/mime/multipartutil"
-	"github.com/grokify/gotilla/net/httputilmore"
+	voicebase "github.com/grokify/go-voicebase-v3/client"
+	"github.com/grokify/mogo/encoding/jsonutil"
+	"github.com/grokify/mogo/mime/multipartutil"
 )
 
 func UploadMedia(client *http.Client, filepath string, cfg UploadMediaConfiguration, verbose bool) (*UploadMediaResponse, *http.Response, error) {
 	builder := multipartutil.NewMultipartBuilder()
 
-	err := builder.WriteFile("media", filepath)
+	err := builder.WriteFilePath("media", filepath)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -44,7 +44,7 @@ func UploadMedia(client *http.Client, filepath string, cfg UploadMediaConfigurat
 
 	mediaResponse := &UploadMediaResponse{}
 
-	err = httputilmore.UnmarshalResponseJSON(resp, mediaResponse)
+	_, err = jsonutil.UnmarshalReader(resp.Body, mediaResponse)
 
 	return mediaResponse, resp, err
 }

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/go-voicebase-v3"
-	"github.com/grokify/gotilla/fmt/fmtutil"
-	"github.com/grokify/oauth2more"
+	clientutil "github.com/grokify/go-voicebase-v3"
+	"github.com/grokify/goauth"
+	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/joho/godotenv"
 )
 
@@ -26,7 +26,7 @@ func main() {
 	vocabs := clientutil.BuildVocabulariesForStrings(vocabStrings...)
 	fmtutil.PrintJSON(vocabs)
 
-	client := oauth2more.NewClientAccessToken(os.Getenv(EnvAccessToken))
+	client := goauth.NewClientToken(goauth.TokenBearer, os.Getenv(EnvAccessToken), false)
 
 	cfg := clientutil.MediaConfiguration{
 		Language:               "en-US",

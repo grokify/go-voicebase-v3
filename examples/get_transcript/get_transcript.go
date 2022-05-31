@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/go-voicebase-v3"
-	"github.com/grokify/go-voicebase-v3/client"
-	"github.com/grokify/gotilla/config"
-	"github.com/grokify/gotilla/fmt/fmtutil"
-	"github.com/grokify/gotilla/strings/stringsutil"
+	clientutil "github.com/grokify/go-voicebase-v3"
+	voicebase "github.com/grokify/go-voicebase-v3/client"
+	"github.com/grokify/mogo/config"
+	"github.com/grokify/mogo/fmt/fmtutil"
+	"github.com/grokify/mogo/type/stringsutil"
 )
 
 const (

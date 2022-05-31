@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/go-voicebase-v3"
-	"github.com/grokify/gotilla/config"
-	"github.com/grokify/gotilla/fmt/fmtutil"
+	clientutil "github.com/grokify/go-voicebase-v3"
+	"github.com/grokify/mogo/config"
+	"github.com/grokify/mogo/fmt/fmtutil"
 )
 
 func main() {
