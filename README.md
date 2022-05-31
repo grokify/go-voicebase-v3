@@ -179,8 +179,8 @@ https://github.com/grokify/
 
 https://stackoverflow.com/
 
- [build-status-svg]: https://api.travis-ci.org/grokify/go-voicebase-v3.svg?branch=master
- [build-status-link]: https://travis-ci.org/grokify/go-voicebase-v3
+ [build-status-svg]: https://github.com/grokify/go-voicebase-v3/workflows/test/badge.svg
+ [build-status-url]: https://github.com/grokify/go-voicebase-v3/actions
  [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-voicebase-v3
  [goreport-link]: https://goreportcard.com/report/github.com/grokify/go-voicebase-v3
  [docs-godoc-svg]: https://img.shields.io/badge/docs-godoc-blue.svg
