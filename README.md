@@ -21,14 +21,14 @@ For more information, please visit [https://www.voicebase.com/contact-us/](https
 Install the client:
 
 ```
-$ go get github.com/grokify/go-voicebase-v3
+$ go get github.com/grokify/go-voicebase-v3/v3
 ```
 
 Add the following to your Go source:
 
 ```
 import(
-    "github.com/grokify/go-voicebase-v3"
+    "github.com/grokify/go-voicebase-v3/v3"
 )
 ```
 

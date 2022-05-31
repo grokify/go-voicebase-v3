@@ -1,4 +1,4 @@
-module github.com/grokify/go-voicebase-v3
+module github.com/grokify/go-voicebase-v3/v3
 
 go 1.18
 
