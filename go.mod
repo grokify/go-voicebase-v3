@@ -4,9 +4,9 @@ go 1.18
 
 require (
 	github.com/grokify/goauth v0.15.2
-	github.com/grokify/mogo v0.39.8
+	github.com/grokify/mogo v0.40.0
 	github.com/joho/godotenv v1.4.0
-	golang.org/x/net v0.0.0-20220607020251-c690dde0001d
+	golang.org/x/net v0.0.0-20220624214902-1bab6f366d9e
 	golang.org/x/oauth2 v0.0.0-20220608161450-d0670ef3b1eb
 )
 
@@ -23,5 +23,5 @@ require (
 	github.com/valyala/fastjson v1.6.3 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/protobuf v1.28.0 // indirect
+	google.golang.org/protobuf v1.28.1 // indirect
 )
