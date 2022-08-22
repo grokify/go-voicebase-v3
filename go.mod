@@ -3,17 +3,17 @@ module github.com/grokify/go-voicebase-v3/v3
 go 1.18
 
 require (
-	github.com/grokify/goauth v0.15.2
+	github.com/grokify/goauth v0.16.0
 	github.com/grokify/mogo v0.40.4
 	github.com/joho/godotenv v1.4.0
 	golang.org/x/net v0.0.0-20220812174116-3211cb980234
-	golang.org/x/oauth2 v0.0.0-20220608161450-d0670ef3b1eb
+	golang.org/x/oauth2 v0.0.0-20220808172628-8227340efae7
 )
 
 require (
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/caarlos0/env/v6 v6.9.3 // indirect
-	github.com/golang-jwt/jwt/v4 v4.4.1 // indirect
+	github.com/golang-jwt/jwt/v4 v4.4.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
