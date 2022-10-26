@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/grokify/goauth v0.16.2
-	github.com/grokify/mogo v0.40.6
+	github.com/grokify/mogo v0.40.10
 	github.com/joho/godotenv v1.4.0
 	golang.org/x/net v0.0.0-20221017152216-f25eb7ecb193
 	golang.org/x/oauth2 v0.0.0-20220822191816-0ebed06d0094
