@@ -3,7 +3,7 @@ module github.com/grokify/go-voicebase-v3/v3
 go 1.18
 
 require (
-	github.com/grokify/goauth v0.17.7
+	github.com/grokify/goauth v0.18.0
 	github.com/grokify/mogo v0.49.1
 	github.com/joho/godotenv v1.5.1
 	golang.org/x/net v0.9.0
