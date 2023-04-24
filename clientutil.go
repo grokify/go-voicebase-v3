@@ -1,7 +1,7 @@
 package clientutil
 
 import (
-	"github.com/grokify/goauth"
+	"github.com/grokify/goauth/authutil"
 
 	voicebase "github.com/grokify/go-voicebase-v3/v3/client"
 )
@@ -12,6 +12,6 @@ const (
 
 func NewApiClientToken(token string) *voicebase.APIClient {
 	apiConfig := voicebase.NewConfiguration()
-	apiConfig.HTTPClient = goauth.NewClientToken(goauth.TokenBearer, token, false)
+	apiConfig.HTTPClient = authutil.NewClientToken(authutil.TokenBearer, token, false)
 	return voicebase.NewAPIClient(apiConfig)
 }

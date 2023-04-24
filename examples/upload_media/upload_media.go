@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/goauth"
+	"github.com/grokify/goauth/authutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/joho/godotenv"
 
@@ -27,7 +27,7 @@ func main() {
 	vocabs := clientutil.BuildVocabulariesForStrings(vocabStrings...)
 	fmtutil.PrintJSON(vocabs)
 
-	client := goauth.NewClientToken(goauth.TokenBearer, os.Getenv(EnvAccessToken), false)
+	client := authutil.NewClientToken(authutil.TokenBearer, os.Getenv(EnvAccessToken), false)
 
 	cfg := clientutil.MediaConfiguration{
 		Language:               "en-US",

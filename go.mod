@@ -3,7 +3,7 @@ module github.com/grokify/go-voicebase-v3/v3
 go 1.18
 
 require (
-	github.com/grokify/goauth v0.17.7
+	github.com/grokify/goauth v0.18.0
 	github.com/grokify/mogo v0.49.1
 	github.com/joho/godotenv v1.5.1
 	golang.org/x/net v0.9.0
@@ -21,7 +21,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/valyala/fastjson v1.6.4 // indirect
-	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
+	golang.org/x/exp v0.0.0-20230420155640-133eef4313cb // indirect
 	golang.org/x/text v0.9.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.30.0 // indirect
