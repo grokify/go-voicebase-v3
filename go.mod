@@ -6,7 +6,7 @@ require (
 	github.com/grokify/goauth v0.18.0
 	github.com/grokify/mogo v0.49.1
 	github.com/joho/godotenv v1.5.1
-	golang.org/x/net v0.9.0
+	golang.org/x/net v0.10.0
 	golang.org/x/oauth2 v0.7.0
 )
 
