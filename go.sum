@@ -20,8 +20,8 @@ github.com/google/go-querystring v1.1.0/go.mod h1:Kcdr2DB4koayq7X8pmAG4sNG59So17
 github.com/google/gofuzz v1.0.0/go.mod h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg=
 github.com/grokify/goauth v0.19.0 h1:3rebrc21Pqw70sMiMLBYPOe6XZCpV1FFU5zFro1TcQw=
 github.com/grokify/goauth v0.19.0/go.mod h1:/+a2RRfjHDy2frBwEiW1nIRqG/Cn3ZkK474Z+La1iVA=
-github.com/grokify/mogo v0.53.0 h1:sDoOEDvgUa5M1yCmEtCG9MTWkPLhqe+b/x9vLIiFeHw=
-github.com/grokify/mogo v0.53.0/go.mod h1:igRUlqAk0mRJxuPeLeTUhZ+FpUwAXsXutZ7nPKneUVA=
+github.com/grokify/mogo v0.54.1 h1:wbSPZDBLOGt5kDL1SrG+bvKgvK8iK9vV1DyMHQmLXTg=
+github.com/grokify/mogo v0.54.1/go.mod h1:igRUlqAk0mRJxuPeLeTUhZ+FpUwAXsXutZ7nPKneUVA=
 github.com/huandu/xstrings v1.4.0 h1:D17IlohoQq4UcpqD7fDk80P7l+lwAmlFaBHgOipl2FU=
 github.com/huandu/xstrings v1.4.0/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq4ovT0aE=
 github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
