@@ -6,7 +6,7 @@ go 1.21
 
 require (
 	github.com/grokify/goauth v0.20.6
-	github.com/grokify/mogo v0.62.2
+	github.com/grokify/mogo v0.62.3
 	github.com/joho/godotenv v1.5.1
 	golang.org/x/net v0.19.0
 	golang.org/x/oauth2 v0.15.0
