@@ -5,8 +5,8 @@ go 1.21
 // toolchain go1.21.1
 
 require (
-	github.com/grokify/goauth v0.20.10
-	github.com/grokify/mogo v0.62.8
+	github.com/grokify/goauth v0.20.11
+	github.com/grokify/mogo v0.63.0
 	github.com/joho/godotenv v1.5.1
 	golang.org/x/net v0.20.0
 	golang.org/x/oauth2 v0.16.0
