@@ -8,8 +8,8 @@ require (
 	github.com/grokify/goauth v0.20.10
 	github.com/grokify/mogo v0.62.8
 	github.com/joho/godotenv v1.5.1
-	golang.org/x/net v0.20.0
-	golang.org/x/oauth2 v0.16.0
+	golang.org/x/net v0.21.0
+	golang.org/x/oauth2 v0.17.0
 )
 
 require (
