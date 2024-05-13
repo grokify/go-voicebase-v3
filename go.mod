@@ -8,7 +8,7 @@ require (
 	github.com/grokify/goauth v0.20.15
 	github.com/grokify/mogo v0.63.10
 	github.com/joho/godotenv v1.5.1
-	golang.org/x/net v0.24.0
+	golang.org/x/net v0.25.0
 	golang.org/x/oauth2 v0.20.0
 )
 
@@ -23,6 +23,6 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/stretchr/testify v1.9.0 // indirect
 	golang.org/x/exp v0.0.0-20240416160154-fe59bbe5cc7f // indirect
-	golang.org/x/sys v0.19.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/sys v0.20.0 // indirect
+	golang.org/x/text v0.15.0 // indirect
 )
