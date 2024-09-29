@@ -1,11 +1,10 @@
 module github.com/grokify/go-voicebase-v3/v3
 
 go 1.22.0
-
-toolchain go1.22.2
+toolchain go1.22.7
 
 require (
-	github.com/grokify/goauth v0.21.10
+	github.com/grokify/goauth v0.22.0
 	github.com/grokify/mogo v0.64.11
 	github.com/joho/godotenv v1.5.1
 	golang.org/x/net v0.29.0
